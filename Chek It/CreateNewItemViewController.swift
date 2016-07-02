@@ -9,13 +9,24 @@
 import UIKit
 
 class CreateNewItemViewController: UIViewController {
+    
+    var newItem: Book!
 
     
     @IBOutlet weak var itemImageView: UIImageView!
     
     
+    @IBOutlet weak var itemNameTextField: UITextField!
+    
+    
     @IBAction func imageButtonTapped(sender: AnyObject) {
         //TODO: Create Photo Helper
+        print("add image button pressed!")
+    }
+    
+    
+    @IBAction func createItemButtonPressed(sender: AnyObject) {
+        print("item created!")
     }
     
     

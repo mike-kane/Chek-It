@@ -13,9 +13,13 @@
 		E468ABCF1D27768D00FD1D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E468ABCD1D27768D00FD1D37 /* LaunchScreen.storyboard */; };
 		E468ABD71D27789900FD1D37 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABD61D27789900FD1D37 /* Book.swift */; };
 		E468ABD91D277C8800FD1D37 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABD81D277C8800FD1D37 /* Student.swift */; };
-		E468ABDB1D2780BB00FD1D37 /* CheckedOutItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABDA1D2780BB00FD1D37 /* CheckedOutItemsViewController.swift */; };
 		E468ABDD1D2780E200FD1D37 /* CheckOutNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */; };
-		E468ABDF1D27838900FD1D37 /* CreateNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABDE1D27838900FD1D37 /* CreateNewItemViewController.swift */; };
+		E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */; };
+		E468ABE61D2790D700FD1D37 /* CheckedOutItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */; };
+		E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE71D27997E00FD1D37 /* PhotoHelper.swift */; };
+		E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEA1D279A6400FD1D37 /* Transaction.swift */; };
+		E468ABED1D279B6500FD1D37 /* AssignStudentToItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */; };
+		E468ABEF1D279BC500FD1D37 /* ViewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +31,13 @@
 		E468ABD01D27768D00FD1D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E468ABD61D27789900FD1D37 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		E468ABD81D277C8800FD1D37 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		E468ABDA1D2780BB00FD1D37 /* CheckedOutItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckedOutItemsViewController.swift; path = ../CheckedOutItemsViewController.swift; sourceTree = "<group>"; };
 		E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutNewItemViewController.swift; sourceTree = "<group>"; };
-		E468ABDE1D27838900FD1D37 /* CreateNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNewItemViewController.swift; path = ../CreateNewItemViewController.swift; sourceTree = "<group>"; };
+		E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewItemViewController.swift; sourceTree = "<group>"; };
+		E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedOutItemsViewController.swift; sourceTree = "<group>"; };
+		E468ABE71D27997E00FD1D37 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
+		E468ABEA1D279A6400FD1D37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignStudentToItemViewController.swift; sourceTree = "<group>"; };
+		E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 		E468ABC31D27768D00FD1D37 /* Chek It */ = {
 			isa = PBXGroup;
 			children = (
+				E468ABE91D27998500FD1D37 /* Helper Files */,
 				E468ABE21D2783D400FD1D37 /* Custom Views */,
 				E468ABE11D2783C800FD1D37 /* View Controllers */,
 				E468ABE01D2783C000FD1D37 /* Models */,
@@ -79,6 +88,7 @@
 			children = (
 				E468ABD61D27789900FD1D37 /* Book.swift */,
 				E468ABD81D277C8800FD1D37 /* Student.swift */,
+				E468ABEA1D279A6400FD1D37 /* Transaction.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -86,9 +96,11 @@
 		E468ABE11D2783C800FD1D37 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E468ABDA1D2780BB00FD1D37 /* CheckedOutItemsViewController.swift */,
+				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
+				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
 				E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */,
-				E468ABDE1D27838900FD1D37 /* CreateNewItemViewController.swift */,
+				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
+				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -98,6 +110,14 @@
 			children = (
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		E468ABE91D27998500FD1D37 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				E468ABE71D27997E00FD1D37 /* PhotoHelper.swift */,
+			);
+			name = "Helper Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +193,13 @@
 			files = (
 				E468ABC51D27768D00FD1D37 /* AppDelegate.swift in Sources */,
 				E468ABD71D27789900FD1D37 /* Book.swift in Sources */,
-				E468ABDF1D27838900FD1D37 /* CreateNewItemViewController.swift in Sources */,
+				E468ABEF1D279BC500FD1D37 /* ViewTransactionViewController.swift in Sources */,
+				E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */,
+				E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */,
+				E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */,
+				E468ABED1D279B6500FD1D37 /* AssignStudentToItemViewController.swift in Sources */,
 				E468ABDD1D2780E200FD1D37 /* CheckOutNewItemViewController.swift in Sources */,
-				E468ABDB1D2780BB00FD1D37 /* CheckedOutItemsViewController.swift in Sources */,
+				E468ABE61D2790D700FD1D37 /* CheckedOutItemsViewController.swift in Sources */,
 				E468ABD91D277C8800FD1D37 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +350,7 @@
 				E468ABD51D27768D00FD1D37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

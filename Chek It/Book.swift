@@ -11,8 +11,9 @@ import UIKit
 class Book: NSObject {
 
     var bookName: String!
-    var isCheckedOut: Bool
-   // var checkedOutBy: Student
+    var isCheckedOut: Bool = false
+    var currentTransaction: Transaction?
+    var transactionRecord = [Transaction]()
     
     
 }

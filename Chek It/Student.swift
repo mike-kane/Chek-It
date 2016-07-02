@@ -12,7 +12,8 @@ class Student: NSObject {
 
     var firstName: String!
     var lastName: String!
-    var checkedOutItems = [Book]()
+    var transactions = [Transaction]()
+    var currentlyCheckedOutItems = [Book]()
     
     
 }
