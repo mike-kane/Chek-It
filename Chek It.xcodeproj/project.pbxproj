@@ -51,6 +51,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E44CF6F31D3CABC900DF0436 /* Current/New Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
+				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
+				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
+			);
+			name = "Current/New Transactions";
+			sourceTree = "<group>";
+		};
+		E44CF6F41D3CABEB00DF0436 /* Previous Transactions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Previous Transactions";
+			sourceTree = "<group>";
+		};
+		E44CF6F51D3CABF600DF0436 /* Create Items/Students */ = {
+			isa = PBXGroup;
+			children = (
+				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
+			);
+			name = "Create Items/Students";
+			sourceTree = "<group>";
+		};
 		E468ABB81D27768C00FD1D37 = {
 			isa = PBXGroup;
 			children = (
@@ -70,12 +95,12 @@
 		E468ABC31D27768D00FD1D37 /* Chek It */ = {
 			isa = PBXGroup;
 			children = (
+				E468ABC81D27768D00FD1D37 /* Main.storyboard */,
 				E468ABE91D27998500FD1D37 /* Helper Files */,
 				E468ABE21D2783D400FD1D37 /* Custom Views */,
 				E468ABE11D2783C800FD1D37 /* View Controllers */,
 				E468ABE01D2783C000FD1D37 /* Models */,
 				E468ABC41D27768D00FD1D37 /* AppDelegate.swift */,
-				E468ABC81D27768D00FD1D37 /* Main.storyboard */,
 				E468ABCB1D27768D00FD1D37 /* Assets.xcassets */,
 				E468ABCD1D27768D00FD1D37 /* LaunchScreen.storyboard */,
 				E468ABD01D27768D00FD1D37 /* Info.plist */,
@@ -96,11 +121,10 @@
 		E468ABE11D2783C800FD1D37 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
-				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
+				E44CF6F51D3CABF600DF0436 /* Create Items/Students */,
+				E44CF6F41D3CABEB00DF0436 /* Previous Transactions */,
+				E44CF6F31D3CABC900DF0436 /* Current/New Transactions */,
 				E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */,
-				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
-				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

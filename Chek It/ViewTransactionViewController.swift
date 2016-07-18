@@ -10,26 +10,33 @@ import UIKit
 
 class ViewTransactionViewController: UIViewController {
 
+    
+    @IBOutlet weak var studentImageView: UIImageView!
+    
+    @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBOutlet weak var studentNameLabel: UILabel!
+    
+    @IBOutlet weak var itemNameLabel: UILabel!
+    
+    @IBOutlet weak var dateCheckedOutLabel: UILabel!
+    
+    
+    @IBAction func returnedButtonPressed(sender: AnyObject) {
+        //Mark transaction as complete.
+        //Remove from open transactions list
+        //Move to completed transactions list
+        //unwind to transactionsVC
+        
+        performSegueWithIdentifier("unwindToTransactionsVCSegue", sender: nil)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
