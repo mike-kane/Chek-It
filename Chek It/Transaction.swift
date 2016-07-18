@@ -10,7 +10,7 @@ import UIKit
 
 class Transaction: NSObject {
     
-    var book: Book!
+    var item: Item!
     var student: Student!
     var dateCheckedOut: NSDate!
     var dateCheckedIn: NSDate?

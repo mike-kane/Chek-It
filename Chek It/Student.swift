@@ -12,8 +12,9 @@ class Student: NSObject {
 
     var firstName: String!
     var lastName: String!
+    var picture: UIImage!
     var transactions = [Transaction]()
-    var currentlyCheckedOutItems = [Book]()
+    var currentlyCheckedOutItems = [Item]()
     
     
 }

@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */; };
+		E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */; };
+		E44CF6FB1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */; };
+		E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */; };
+		E44CF6FF1D3CB50700DF0436 /* CreateNewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */; };
 		E468ABC51D27768D00FD1D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABC41D27768D00FD1D37 /* AppDelegate.swift */; };
 		E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E468ABC81D27768D00FD1D37 /* Main.storyboard */; };
 		E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E468ABCB1D27768D00FD1D37 /* Assets.xcassets */; };
 		E468ABCF1D27768D00FD1D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E468ABCD1D27768D00FD1D37 /* LaunchScreen.storyboard */; };
 		E468ABD71D27789900FD1D37 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABD61D27789900FD1D37 /* Book.swift */; };
 		E468ABD91D277C8800FD1D37 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABD81D277C8800FD1D37 /* Student.swift */; };
-		E468ABDD1D2780E200FD1D37 /* CheckOutNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */; };
 		E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */; };
 		E468ABE61D2790D700FD1D37 /* CheckedOutItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */; };
 		E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABE71D27997E00FD1D37 /* PhotoHelper.swift */; };
@@ -23,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStudentViewController.swift; sourceTree = "<group>"; };
+		E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
+		E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemOrsStudentCellNib.xib; sourceTree = "<group>"; };
+		E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemOrStudentTableViewCell.swift; sourceTree = "<group>"; };
+		E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewStudentViewController.swift; sourceTree = "<group>"; };
 		E468ABC11D27768D00FD1D37 /* Chek It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chek It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E468ABC41D27768D00FD1D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E468ABC91D27768D00FD1D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,7 +40,6 @@
 		E468ABD01D27768D00FD1D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E468ABD61D27789900FD1D37 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		E468ABD81D277C8800FD1D37 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutNewItemViewController.swift; sourceTree = "<group>"; };
 		E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewItemViewController.swift; sourceTree = "<group>"; };
 		E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedOutItemsViewController.swift; sourceTree = "<group>"; };
 		E468ABE71D27997E00FD1D37 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
 				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
 				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
+				E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */,
+				E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */,
 			);
 			name = "Current/New Transactions";
 			sourceTree = "<group>";
@@ -72,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
+				E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */,
 			);
 			name = "Create Items/Students";
 			sourceTree = "<group>";
@@ -124,7 +135,6 @@
 				E44CF6F51D3CABF600DF0436 /* Create Items/Students */,
 				E44CF6F41D3CABEB00DF0436 /* Previous Transactions */,
 				E44CF6F31D3CABC900DF0436 /* Current/New Transactions */,
-				E468ABDC1D2780E200FD1D37 /* CheckOutNewItemViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -132,6 +142,8 @@
 		E468ABE21D2783D400FD1D37 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */,
+				E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -203,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E468ABCF1D27768D00FD1D37 /* LaunchScreen.storyboard in Resources */,
+				E44CF6FB1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib in Resources */,
 				E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */,
 				E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */,
 			);
@@ -221,10 +234,13 @@
 				E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */,
 				E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */,
 				E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */,
+				E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */,
+				E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */,
 				E468ABED1D279B6500FD1D37 /* AssignStudentToItemViewController.swift in Sources */,
-				E468ABDD1D2780E200FD1D37 /* CheckOutNewItemViewController.swift in Sources */,
 				E468ABE61D2790D700FD1D37 /* CheckedOutItemsViewController.swift in Sources */,
+				E44CF6FF1D3CB50700DF0436 /* CreateNewStudentViewController.swift in Sources */,
 				E468ABD91D277C8800FD1D37 /* Student.swift in Sources */,
+				E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

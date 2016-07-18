@@ -8,10 +8,11 @@
 
 import UIKit
 
-class Book: NSObject {
+class Item: NSObject {
 
-    var bookName: String!
+    var itemName: String!
     var isCheckedOut: Bool = false
+    var picture: UIImage!
     var currentTransaction: Transaction?
     var transactionRecord = [Transaction]()
     
