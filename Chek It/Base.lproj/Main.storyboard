@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIu-bx-SW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461.5" y="410.5"/>
+            <point key="canvasLocation" x="2065.5" y="1186.5"/>
         </scene>
         <!--Assign Student To Item View Controller-->
         <scene sceneID="K1o-1l-AnK">
@@ -382,16 +382,17 @@
                     <connections>
                         <segue destination="tAf-3f-HK4" kind="relationship" relationship="viewControllers" id="89e-xN-0KD"/>
                         <segue destination="6sB-FJ-Tgq" kind="relationship" relationship="viewControllers" id="QYV-ei-R9y"/>
+                        <segue destination="Jcv-aO-cGo" kind="relationship" relationship="viewControllers" id="Uzu-WD-4ln"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo4-2G-yAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-116.5" y="178.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Existing Students Or Items View Controller-->
         <scene sceneID="hbe-2i-aeZ">
             <objects>
-                <viewController id="VkV-it-mFJ" sceneMemberID="viewController">
+                <viewController id="VkV-it-mFJ" customClass="ExistingStudentsOrItemsViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BYI-Hb-xr7"/>
                         <viewControllerLayoutGuide type="bottom" id="lrg-Yj-ZLB"/>
@@ -399,18 +400,121 @@
                     <view key="view" contentMode="scaleToFill" id="8aI-xf-pwh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i2v-zZ-seq">
+                                <rect key="frame" x="94" y="79" width="186" height="29"/>
+                                <segments>
+                                    <segment title="Items"/>
+                                    <segment title="Students"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChoiceChanged:" destination="VkV-it-mFJ" eventType="valueChanged" id="g3O-32-9Lz"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UhW-23-Qxp">
+                                <rect key="frame" x="0.0" y="144" width="375" height="474"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UhW-23-Qxp" secondAttribute="trailing" id="4fq-6I-C1L"/>
+                            <constraint firstItem="i2v-zZ-seq" firstAttribute="top" secondItem="BYI-Hb-xr7" secondAttribute="bottom" constant="15" id="7uk-58-hX2"/>
+                            <constraint firstItem="i2v-zZ-seq" firstAttribute="leading" secondItem="8aI-xf-pwh" secondAttribute="leadingMargin" constant="78" id="CWR-WV-9rC"/>
+                            <constraint firstItem="UhW-23-Qxp" firstAttribute="leading" secondItem="8aI-xf-pwh" secondAttribute="leading" id="EEo-wn-Xe4"/>
+                            <constraint firstItem="UhW-23-Qxp" firstAttribute="bottom" secondItem="lrg-Yj-ZLB" secondAttribute="top" id="N4K-Oi-WVs"/>
+                            <constraint firstItem="UhW-23-Qxp" firstAttribute="top" secondItem="i2v-zZ-seq" secondAttribute="bottom" constant="37" id="Ojh-V2-mvu"/>
+                            <constraint firstItem="i2v-zZ-seq" firstAttribute="centerX" secondItem="UhW-23-Qxp" secondAttribute="centerX" id="np6-Ag-pTZ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4LA-sM-pQF"/>
+                    <navigationItem key="navigationItem" id="4LA-sM-pQF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MSn-BB-B4v">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="VkV-it-mFJ" id="sZh-i3-ESq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="entityTableView" destination="UhW-23-Qxp" id="dF6-SJ-yvs"/>
+                        <outlet property="itemsOrStudentsSegmentedControl" destination="i2v-zZ-seq" id="0Ex-Jy-H8X"/>
                         <segue destination="haE-vC-Io8" kind="show" identifier="createNewItemSegue" id="e1y-F8-sDk"/>
                         <segue destination="Acd-fd-EfY" kind="show" identifier="createNewStudentSegue" id="2HW-Ru-a9T"/>
+                        <segue destination="Jxf-Z5-RXw" kind="show" identifier="viewStudentOrItemSegue" id="wu6-nb-cTL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqd-xx-7d1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988.5" y="410.5"/>
+            <point key="canvasLocation" x="1575.5" y="410.5"/>
+        </scene>
+        <!--View Student Or Item View Controller-->
+        <scene sceneID="DU6-sf-3Xb">
+            <objects>
+                <viewController id="Jxf-Z5-RXw" customClass="ViewStudentOrItemViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uak-BS-Jya"/>
+                        <viewControllerLayoutGuide type="bottom" id="y6M-xD-QDj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6b1-N2-P5R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cMI-l3-k0a">
+                                <rect key="frame" x="116" y="98" width="142" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="163" id="DUh-nJ-8LO"/>
+                                    <constraint firstAttribute="width" constant="142" id="oO4-JG-IGh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Or Student Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNP-2O-tBO">
+                                <rect key="frame" x="20" y="285" width="335" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="dj1-un-p1h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-FX-avt">
+                                <rect key="frame" x="0.0" y="389" width="375" height="229"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gu-gn-Ov3">
+                                <rect key="frame" x="139" y="350" width="96" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="Dzc-iD-BtE"/>
+                                    <constraint firstAttribute="height" constant="31" id="b9g-QR-XzF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94607371799999995" green="0.94607371799999995" blue="0.94607371799999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1gu-gn-Ov3" firstAttribute="centerX" secondItem="IB1-FX-avt" secondAttribute="centerX" id="0y3-gi-cd6"/>
+                            <constraint firstItem="IB1-FX-avt" firstAttribute="top" secondItem="1gu-gn-Ov3" secondAttribute="bottom" constant="8" symbolic="YES" id="40P-VW-17m"/>
+                            <constraint firstItem="JNP-2O-tBO" firstAttribute="top" secondItem="cMI-l3-k0a" secondAttribute="bottom" constant="24" id="CkO-Tr-7eu"/>
+                            <constraint firstItem="JNP-2O-tBO" firstAttribute="leading" secondItem="6b1-N2-P5R" secondAttribute="leadingMargin" constant="4" id="OGk-2r-odM"/>
+                            <constraint firstItem="cMI-l3-k0a" firstAttribute="centerX" secondItem="JNP-2O-tBO" secondAttribute="centerX" id="ORt-tQ-K1j"/>
+                            <constraint firstItem="1gu-gn-Ov3" firstAttribute="top" secondItem="JNP-2O-tBO" secondAttribute="bottom" constant="32" id="PB9-Kv-mJw"/>
+                            <constraint firstItem="JNP-2O-tBO" firstAttribute="centerX" secondItem="1gu-gn-Ov3" secondAttribute="centerX" id="Rfc-uT-o2H"/>
+                            <constraint firstItem="IB1-FX-avt" firstAttribute="bottom" secondItem="y6M-xD-QDj" secondAttribute="top" id="TYd-gz-d5c"/>
+                            <constraint firstItem="cMI-l3-k0a" firstAttribute="top" secondItem="Uak-BS-Jya" secondAttribute="bottom" constant="34" id="chE-r2-Fgx"/>
+                            <constraint firstAttribute="trailing" secondItem="IB1-FX-avt" secondAttribute="trailing" id="dvs-TV-DMi"/>
+                            <constraint firstItem="IB1-FX-avt" firstAttribute="leading" secondItem="6b1-N2-P5R" secondAttribute="leading" id="h2d-Bn-KXO"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="IB1-FX-avt" id="Z0O-kl-tUE"/>
+                        <outlet property="studentOrItemImageView" destination="cMI-l3-k0a" id="fbI-90-7zd"/>
+                        <outlet property="studentOrItemLabel" destination="JNP-2O-tBO" id="ass-Ae-kZm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uzx-kQ-XgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2048.5" y="410.5"/>
         </scene>
         <!--Create New Student View Controller-->
         <scene sceneID="K0E-ii-sar">
@@ -521,12 +625,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ya-Js-7LN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988.5" y="1186.5"/>
+            <point key="canvasLocation" x="1575.5" y="1186.5"/>
         </scene>
-        <!--Item 1-->
+        <!--Current Transactions Tab-->
         <scene sceneID="22z-dK-pZU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tAf-3f-HK4" sceneMemberID="viewController">
+                <navigationController title="Current Transactions Tab" automaticallyAdjustsScrollViewInsets="NO" id="tAf-3f-HK4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 1" id="eoV-YZ-b1W"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xPX-08-i1x">
@@ -542,10 +646,63 @@
             </objects>
             <point key="canvasLocation" x="499.5" y="-364.5"/>
         </scene>
-        <!--Item-->
+        <!--Completed Transactions TBLVW-->
+        <scene sceneID="dcC-js-e0x">
+            <objects>
+                <viewController title="Completed Transactions TBLVW" id="9xf-jq-k5l" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Yh-TV-tcp"/>
+                        <viewControllerLayoutGuide type="bottom" id="WJd-ZY-8LW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kgg-Mb-Dhy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-lW-WBx">
+                                <rect key="frame" x="0.0" y="123" width="375" height="495"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K8A-lW-WBx" firstAttribute="leading" secondItem="kgg-Mb-Dhy" secondAttribute="leading" id="4G6-Nh-OAb"/>
+                            <constraint firstAttribute="trailing" secondItem="K8A-lW-WBx" secondAttribute="trailing" id="5OX-Ba-sUt"/>
+                            <constraint firstItem="K8A-lW-WBx" firstAttribute="top" secondItem="0Yh-TV-tcp" secondAttribute="bottom" constant="59" id="9BQ-kG-wkH"/>
+                            <constraint firstItem="K8A-lW-WBx" firstAttribute="bottom" secondItem="WJd-ZY-8LW" secondAttribute="top" id="htQ-p5-xaF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xJX-JB-anW"/>
+                    <connections>
+                        <segue destination="Ltb-UV-ZQy" kind="show" identifier="viewCompletedTransactionSegue" id="p9O-u2-zvx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQo-Qj-3pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69.5" y="1079.5"/>
+        </scene>
+        <!--Transaction Record-->
+        <scene sceneID="kYN-Ik-YH9">
+            <objects>
+                <viewController title="Transaction Record" id="Ltb-UV-ZQy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n0m-t6-Dgj"/>
+                        <viewControllerLayoutGuide type="bottom" id="p1q-1B-T9U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xKE-Cd-CHe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94607371799999995" green="0.94607371799999995" blue="0.94607371799999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wu4-wx-Ciy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387.5" y="1079.5"/>
+        </scene>
+        <!--Item/Student Records-->
         <scene sceneID="9EP-sr-vP0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6sB-FJ-Tgq" sceneMemberID="viewController">
+                <navigationController title="Item/Student Records" automaticallyAdjustsScrollViewInsets="NO" id="6sB-FJ-Tgq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="SUU-M6-3vI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vze-T2-Odv">
@@ -559,7 +716,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3e-cC-wIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499.5" y="410.5"/>
+            <point key="canvasLocation" x="1086.5" y="410.5"/>
+        </scene>
+        <!--Completed Transactions Tab-->
+        <scene sceneID="np3-eo-mH1">
+            <objects>
+                <navigationController title="Completed Transactions Tab" automaticallyAdjustsScrollViewInsets="NO" id="Jcv-aO-cGo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="R5p-Nl-Vlw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3bD-i3-S1F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9xf-jq-k5l" kind="relationship" relationship="rootViewController" id="fGz-B6-Yo5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VrS-gQ-bk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522.5" y="1079.5"/>
         </scene>
     </scenes>
 </document>

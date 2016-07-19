@@ -10,7 +10,7 @@ import UIKit
 
 class CreateNewItemViewController: UIViewController {
     
-    var newItem: Book!
+    var newItem: Item!
 
     
     @IBOutlet weak var itemImageView: UIImageView!
