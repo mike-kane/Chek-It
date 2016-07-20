@@ -19,10 +19,26 @@ class CreateNewStudentViewController: UIViewController {
    
     
     @IBAction func addStudentPhotoButtonPressed(sender: AnyObject) {
+        
+        
     }
     
     
     @IBAction func createStudentButtonPressed(sender: AnyObject) {
+        let newStudent = Student()
+        newStudent.firstName = firstNameTextField.text
+        newStudent.lastName = lastNameTextField.text
+        let imageData: NSData = UIImagePNGRepresentation(newStudentImageView.image!)!
+        newStudent.picture = imageData
+        
+        newStudent.add()
+        let alert = UIAlertController(title: "Success!", message: "Student created!", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: {
+            action in
+                self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        alert.addAction(action)
         
     }
     

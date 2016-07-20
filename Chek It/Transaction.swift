@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Transaction: NSObject {
+class Transaction: Object {
     
-    var item: Item!
-    var student: Student!
-    var dateCheckedOut: NSDate!
-    var dateCheckedIn: NSDate?
-    var transactionComplete = false
+    dynamic var item: Item!
+    dynamic var student: Student!
+    dynamic var dateCheckedOut: NSDate!
+    dynamic var dateCheckedIn: NSDate?
+    dynamic var transactionComplete = false
 
 }

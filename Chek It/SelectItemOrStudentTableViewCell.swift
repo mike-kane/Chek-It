@@ -30,11 +30,11 @@ class SelectItemOrStudentTableViewCell: UITableViewCell {
     
     func setUpItemCell(item: Item) {
             itemOrStudentNameLabel.text = item.itemName
-            itemOrStudentImageView.image = item.picture
+        itemOrStudentImageView.image = UIImage(data: item.picture)
     }
     
     func setUpStudentCell(student: Student) {
-        itemOrStudentImageView.image = student.picture
+        itemOrStudentImageView.image = UIImage(data: student.picture)
         itemOrStudentNameLabel.text = "\(student.lastName), \(student.firstName)"
     }
     

@@ -26,13 +26,13 @@ class ExistingStudentOrItemTableViewCell: UITableViewCell {
     }
     
     func setUpItemCell(item: Item) {
-        entityImageView.image = item.picture
+        entityImageView.image = UIImage(data: item.picture)
         entityNameLabel.text = item.itemName
     }
     
     
     func setUpStudentCell(student: Student) {
-        entityImageView.image = student.picture
+        entityImageView.image = UIImage(data: student.picture)
         entityNameLabel.text = "\(student.lastName), \(student.firstName)"
     }
 

@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Student: NSObject {
+class Student: Object {
 
-    var firstName: String!
-    var lastName: String!
-    var picture: UIImage!
-    var transactions = [Transaction]()
-    var currentlyCheckedOutItems = [Item]()
+    dynamic var firstName: String!
+    dynamic var lastName: String!
+    dynamic var picture: NSData!
+    var transactionHistory = List<Transaction>()
+    var currentlyCheckedOutItems = List<Item>()
     
     
 }

@@ -30,10 +30,12 @@ class ViewStudentOrItemViewController: UIViewController {
         
         if studentOrItem == "Student" {
             studentOrItemLabel.text = "\(studentToView!.lastName), \(studentToView!.firstName)"
-            studentOrItemImageView.image = studentToView!.picture
+            let image: UIImage = UIImage(data: studentToView!.picture!)!
+            studentOrItemImageView.image = image
         } else {
             studentOrItemLabel.text = itemToView!.itemName
-            studentOrItemImageView.image = itemToView!.picture
+            let image: UIImage = UIImage(data: itemToView!.picture!)!
+            studentOrItemImageView.image = image
         }
     }
 }
@@ -42,9 +44,9 @@ extension ViewStudentOrItemViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if studentOrItem == "Student" {
-            return (studentToView?.transactions.count)!
+            return studentToView!.transactionHistory.count
         } else {
-            return (itemToView?.transactionRecord.count)!
+            return (itemToView?.allTransactions.count)!
         }
     }
     
