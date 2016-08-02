@@ -29,6 +29,8 @@
 		E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEA1D279A6400FD1D37 /* Transaction.swift */; };
 		E468ABED1D279B6500FD1D37 /* AssignStudentToItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */; };
 		E468ABEF1D279BC500FD1D37 /* ViewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */; };
+		E4E90DAA1D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */; };
+		E4E90DAC1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */; };
 		E4F70D251D3F314000A82132 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F70D241D3F314000A82132 /* RealmHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		E468ABEA1D279A6400FD1D37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignStudentToItemViewController.swift; sourceTree = "<group>"; };
 		E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransactionViewController.swift; sourceTree = "<group>"; };
+		E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransactionsViewController.swift; sourceTree = "<group>"; };
+		E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCompletedTransactionViewController.swift; sourceTree = "<group>"; };
 		E4F70D241D3F314000A82132 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,8 @@
 		E44CF6F41D3CABEB00DF0436 /* Previous Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */,
+				E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */,
 			);
 			name = "Previous Transactions";
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				E468ABC51D27768D00FD1D37 /* AppDelegate.swift in Sources */,
 				E468ABD71D27789900FD1D37 /* Item.swift in Sources */,
 				E468ABEF1D279BC500FD1D37 /* ViewTransactionViewController.swift in Sources */,
+				E4E90DAC1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift in Sources */,
 				E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */,
 				E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */,
 				E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */,
@@ -350,6 +357,7 @@
 				E468ABE61D2790D700FD1D37 /* CheckedOutItemsViewController.swift in Sources */,
 				E44CF6FF1D3CB50700DF0436 /* CreateNewStudentViewController.swift in Sources */,
 				E468ABD91D277C8800FD1D37 /* Student.swift in Sources */,
+				E4E90DAA1D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift in Sources */,
 				E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */,
 				E4F70D251D3F314000A82132 /* RealmHelper.swift in Sources */,
 			);

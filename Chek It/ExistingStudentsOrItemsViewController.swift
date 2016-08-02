@@ -10,8 +10,8 @@ import UIKit
 
 class ExistingStudentsOrItemsViewController: UIViewController {
 
-    var allExistingStudents = [Student]() // Change to lazy instantiation of DB query to fill
-    var allExistingItems = [Item]()   //Change to lazy instantiation of DB query to fill
+    var allExistingStudents = RealmHelper.objects(Student)
+    var allExistingItems = RealmHelper.objects(Item)
     var selectedIndex = 0
     var studentSelected: Student?
     var itemSelected: Item?
@@ -28,10 +28,12 @@ class ExistingStudentsOrItemsViewController: UIViewController {
         }
     }
     
-    
-    
-    
     @IBAction func addButtonPressed(sender: AnyObject) {
+        if itemsOrStudentsSegmentedControl.selectedSegmentIndex == 0 { // Item Selected
+            performSegueWithIdentifier("createNewItemSegue", sender: nil)
+        } else { // Student Selected
+            performSegueWithIdentifier("createNewStudentSegue", sender: nil)
+        }
     }
     
     
@@ -70,10 +72,20 @@ class ExistingStudentsOrItemsViewController: UIViewController {
 extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if selectedIndex == 0 {      //Items selected
-            return allExistingItems.count
+        if selectedIndex == 0 {//Items selected
+            if let allExistingItems = allExistingItems {
+                    return allExistingItems.count
+            } else {
+                return 0
+            }
+            
         } else {
-            return allExistingStudents.count
+            if let allExistingStudents = allExistingStudents {
+                return allExistingStudents.count
+            } else {
+                return 0
+            }
+            
         }
     }
     
@@ -81,21 +93,28 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! ExistingStudentOrItemTableViewCell
         
         if selectedIndex == 0 {                                     // Items selected
-            let item = allExistingItems[indexPath.row]
-            cell.setUpItemCell(item)
+            if let allExistingItems = allExistingItems {
+                let item  = allExistingItems[indexPath.row]
+                cell.setUpItemCell(item)
+            }
         } else {                                                    // Students selected
-            let student = allExistingStudents[indexPath.row]
-            cell.setUpStudentCell(student)
+            if let allExistingStudents = allExistingStudents {
+                let student = allExistingStudents[indexPath.row]
+                cell.setUpStudentCell(student)
+            }
         }
-        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if selectedIndex == 0 {
-            itemSelected = allExistingItems[indexPath.row]
+            if let allExistingItems = allExistingItems {
+                itemSelected = allExistingItems[indexPath.row]
+            }
         } else {
-            studentSelected = allExistingStudents[indexPath.row]
+            if let allExistingStudents = allExistingStudents {
+                studentSelected = allExistingStudents[indexPath.row]
+            }
         }
         
         performSegueWithIdentifier("viewStudentOrItemSegue", sender: nil)
