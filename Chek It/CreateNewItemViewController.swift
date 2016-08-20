@@ -20,75 +20,43 @@ class CreateNewItemViewController: UIViewController {
     
     
     @IBAction func imageButtonTapped(sender: AnyObject) {
-        //TODO: Create Photo Helper
         photoHelper = PhotoHelper(viewController: self) { (image: UIImage?) in
             if let image = image {
                self.itemImageView.image = image
             }
         }
-        
     }
-    
-    func alertHelper(title: String, message: String, shouldDismiss: Bool) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let alertAction: UIAlertAction
-        if shouldDismiss {
-             alertAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction) in
-                self.dismissViewControllerAnimated(true, completion: nil)
-                }
-        } else {
-            alertAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        }
-        
-        alertController.addAction(alertAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
     
     @IBAction func createItemButtonPressed(sender: AnyObject) {
-        var itemNameError: Bool = false
-        var itemPictureError: Bool = false
-        var alertTitle: String = ""
-        var alertMessage: String = ""
-        guard let itemName = itemNameTextField.text where itemNameTextField.text != "" else {
-            //TODO:  Present alert with error message
-            itemNameError = true
-            return
-        }
         
-        guard let itemImage = itemImageView.image else {
-            //TODO:  Create label to act as a warning!
-            itemPictureError = true
-            return
-        }
+        let successAlert = UIAlertController(title: "Success!", message: "Item has been saved.", preferredStyle: .Alert)
+        let successAction = UIAlertAction(title: "OK", style: .Default, handler: {
+            action in
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+        successAlert.addAction(successAction)
+        let failureAlert = UIAlertController(title: "Error!", message: "All items must have a picture and a name", preferredStyle: .Alert)
+        let failureAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        failureAlert.addAction(failureAction)
+        
+        let image = itemImageView.image
+        let itemName = itemNameTextField.text
         
         
-        
-        if itemPictureError == false || itemNameError == false {
-            
-            let image = itemImage.resizeWithWidth(150)
-            let imageData = UIImagePNGRepresentation(image!)
-            
+        if image != nil && itemName != nil {
+            // Image and item name both exist.  Save to realm and present success message!
             let newItem = Item()
-            newItem.itemName = itemName
-            newItem.picture = imageData
+            newItem.itemName = itemName!
+            let scaledImage = image?.resizeWithWidth(150)
+            let imageAsData: NSData = UIImagePNGRepresentation(scaledImage!)!
+            newItem.picture = imageAsData
             newItem.add()
-            alertTitle = "Success!"
-            alertMessage = "Item Created Successfully!"
-            alertHelper(alertTitle, message: alertMessage, shouldDismiss: true)
+            presentViewController(successAlert, animated: true, completion: nil)
         } else {
-            if itemNameError == true && itemPictureError == true { //both fields missing
-                alertTitle = "Missing Info"
-                alertMessage = "New item must have a name and picture!"
-            } else if itemNameError == true && itemPictureError == false {  //name field missing
-                alertTitle = "Missing Name"
-                alertMessage = "New item must have a name!"
-            } else {
-                alertTitle = "Missing Picture"
-                alertMessage = "New item must have a picture!"
+            //User is missing image or item name.  Present failure alert action.
+            presentViewController(failureAlert, animated: true, completion: nil)
             }
-            alertHelper(alertTitle, message: alertMessage, shouldDismiss: false)
-        }
+        
     }
     
     
@@ -97,8 +65,6 @@ class CreateNewItemViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-
-   
-
 }
+
+

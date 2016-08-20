@@ -15,8 +15,7 @@ class ExistingStudentsOrItemsViewController: UIViewController {
     var selectedIndex = 0
     var studentSelected: Student?
     var itemSelected: Item?
-    
-    
+   
     @IBOutlet weak var itemsOrStudentsSegmentedControl: UISegmentedControl!
    
     @IBOutlet weak var entityTableView: UITableView!
@@ -36,8 +35,9 @@ class ExistingStudentsOrItemsViewController: UIViewController {
         }
     }
     
-    
-    
+    override func viewWillAppear(animated: Bool) {
+        entityTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +45,9 @@ class ExistingStudentsOrItemsViewController: UIViewController {
         entityTableView.delegate = self
         entityTableView.dataSource = self
         
-        let nib = UINib(nibName: "ExistingStudentOrItemTableViewCell", bundle: nil)
+        let nib = UINib(nibName: "ExistingStudentOrItemNib", bundle: nil)
         entityTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewStudentOrItemSegue" {
@@ -66,8 +65,6 @@ class ExistingStudentsOrItemsViewController: UIViewController {
     }
 
 }
-
-
 
 extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableViewDelegate {
     
