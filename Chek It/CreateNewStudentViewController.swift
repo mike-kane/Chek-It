@@ -28,28 +28,54 @@ class CreateNewStudentViewController: UIViewController {
     
     @IBAction func createStudentButtonPressed(sender: AnyObject) {
         
-        if newStudentImageView.image == nil && (firstNameTextField.text == nil || lastNameTextField.text == nil) {
+        let successAlert = UIAlertController(title: "Success!", message: "Student has been saved.", preferredStyle: .Alert)
+        let successAction = UIAlertAction(title: "OK", style: .Default, handler: {
+            action in
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+        successAlert.addAction(successAction)
+        let failureAlert = UIAlertController(title: "Error!", message: "All students must have a picture, first name, and last name.", preferredStyle: .Alert)
+        let failureAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        failureAlert.addAction(failureAction)
+        
+        if validateInputs() {
+            // All inputs are valid.  Create student object and save to Realm DB
+            let newStudent = Student()
+            newStudent.firstName = firstNameTextField.text
+            newStudent.lastName = lastNameTextField.text
+            let scaledImage = newStudentImageView.image?.resizeWithWidth(150)
+            let imageAsData = UIImagePNGRepresentation(scaledImage!)
+            newStudent.picture = imageAsData
+            newStudent.add()
             
+            presentViewController(successAlert, animated: true, completion: nil)
+            
+        } else {
+            // One or more inputs is not valid; present error message
+            presentViewController(failureAlert, animated: true, completion: nil)
         }
         
-        //PRAGMA:  Logic for successful student creation
-        let newStudent = Student()
-        newStudent.firstName = firstNameTextField.text
-        newStudent.lastName = lastNameTextField.text
-        let imageData: NSData = UIImagePNGRepresentation(newStudentImageView.image!)!
-        newStudent.picture = imageData
         
-        newStudent.add()
-        let alert = UIAlertController(title: "Success!", message: "Student created!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: {
-            action in
-                self.navigationController?.popViewControllerAnimated(true)
-        })
         
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        
     }
     
+    
+    func validateInputs() -> Bool {
+        if firstNameTextField.text == nil || (firstNameTextField.text?.isEmpty)! {
+            return false
+        }
+        
+        if lastNameTextField.text == nil || (lastNameTextField.text?.isEmpty)! {
+            return false
+        }
+        
+        if newStudentImageView.image == nil {
+            return false
+        }
+        
+        return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
