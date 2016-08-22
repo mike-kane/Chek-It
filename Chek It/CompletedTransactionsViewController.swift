@@ -10,9 +10,7 @@ import UIKit
 
 class CompletedTransactionsViewController: UIViewController {
     
-    //TODO:  Query to get array of completed transactions
-    let allTransactions = RealmHelper.objects(Transaction)
-    var completedTransactions = [Transaction]()
+    let completedTransactions = RealmHelper.objects(Transaction)?.filter("transactionComplete = true")
     
     var transactionSelected: Transaction!
     
@@ -41,7 +39,12 @@ class CompletedTransactionsViewController: UIViewController {
 extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if let completedTransactions = completedTransactions {
+            return completedTransactions.count
+        } else {
+            return 1
+        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -51,7 +54,7 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        transactionSelected = completedTransactions[indexPath.row]
+        transactionSelected = completedTransactions![indexPath.row]
         self.performSegueWithIdentifier("viewCompletedTransactionSegue", sender: nil)
     }
 }
