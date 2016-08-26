@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="yUq-u8-xIU" customClass="ExistingTransactionTableViewCell" customModule="Chek_It" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" rowHeight="82" id="yUq-u8-xIU" customClass="TransactionTableViewCell" customModule="Chek_It" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="424" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUq-u8-xIU" id="KRS-dY-gr2">
@@ -38,7 +38,7 @@
                 <outlet property="itemImageView" destination="RfN-Nq-IB6" id="tp8-42-vKv"/>
                 <outlet property="itemNameLabel" destination="aWC-X0-6yt" id="29B-DD-ZSL"/>
                 <outlet property="studentImageView" destination="Oqi-A1-7ZR" id="9gB-05-Fj5"/>
-                <outlet property="stuentNameLabel" destination="sfG-up-01E" id="s7k-bl-Ggj"/>
+                <outlet property="studentNameLabel" destination="sfG-up-01E" id="r14-1Z-j93"/>
             </connections>
             <point key="canvasLocation" x="337" y="275"/>
         </tableViewCell>

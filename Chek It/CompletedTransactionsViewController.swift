@@ -21,7 +21,8 @@ class CompletedTransactionsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        let nib = UINib(nibName: "TransactionCellNib", bundle: nil)
+        completedTransactionsTableView.registerNib(nib, forCellReuseIdentifier: "TransactionCell")
         completedTransactionsTableView.delegate = self
         completedTransactionsTableView.dataSource = self
     }
@@ -48,7 +49,19 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("completedTransactionCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("TransactionCell", forIndexPath: indexPath) as! TransactionTableViewCell
+        
+        if let completedTransactions = completedTransactions {
+            let transaction = completedTransactions[indexPath.row]
+            let student = transaction.student
+            let item = transaction.item
+            let itemImage  = UIImage(data: item.picture)
+            cell.itemImageView.image = itemImage!
+            cell.itemNameLabel.text = item.itemName
+            let studentImage = UIImage(data: student.picture)
+            cell.studentImageView.image = studentImage!
+            cell.studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+        }
         
         return cell
     }

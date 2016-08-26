@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="922.5" y="-1903.5"/>
         </scene>
-        <!--Checked Out Items View Controller-->
+        <!--Current Transactions View Controller-->
         <scene sceneID="npe-GR-eH7">
             <objects>
-                <viewController id="PkV-YA-PQg" customClass="CheckedOutItemsViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PkV-YA-PQg" customClass="CurrentTransactionsViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lt1-hv-RDa"/>
                         <viewControllerLayoutGuide type="bottom" id="P5p-Ae-77b"/>
@@ -290,6 +290,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="transactionsTableView" destination="HJl-bU-zYV" id="nmw-HH-ACv"/>
                         <segue destination="rLL-Es-GJT" kind="show" identifier="viewTransactionSegue" id="Mic-k3-ovo"/>
                     </connections>
                 </viewController>
