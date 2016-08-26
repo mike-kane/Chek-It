@@ -57,7 +57,7 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
             let item = transaction.item
             let itemImage  = UIImage(data: item.picture)
             cell.itemImageView.image = itemImage!
-            cell.itemNameLabel.text = item.itemName
+            cell.itemNameLabel.text = "\(item.itemName)"
             let studentImage = UIImage(data: student.picture)
             cell.studentImageView.image = studentImage!
             cell.studentNameLabel.text = "\(student.lastName), \(student.firstName)"
