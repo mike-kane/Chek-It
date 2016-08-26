@@ -1,5 +1,5 @@
 //
-//  ExistingTransactionTableViewCell.swift
+//  TransactionTableViewCell.swift
 //  Chek It
 //
 //  Created by Mike Kane on 8/25/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExistingTransactionTableViewCell: UITableViewCell {
+class TransactionTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var studentImageView: UIImageView!
