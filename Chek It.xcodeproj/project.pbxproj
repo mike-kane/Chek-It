@@ -29,6 +29,8 @@
 		E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEA1D279A6400FD1D37 /* Transaction.swift */; };
 		E468ABED1D279B6500FD1D37 /* AssignStudentToItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */; };
 		E468ABEF1D279BC500FD1D37 /* ViewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */; };
+		E4E819D11D70177900945A6B /* existingTransactionCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E819D01D70177900945A6B /* existingTransactionCellNib.xib */; };
+		E4E819D31D70189500945A6B /* ExistingTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E819D21D70189500945A6B /* ExistingTransactionTableViewCell.swift */; };
 		E4E90DAA1D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */; };
 		E4E90DAC1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */; };
 		E4F70D251D3F314000A82132 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F70D241D3F314000A82132 /* RealmHelper.swift */; };
@@ -61,6 +63,8 @@
 		E468ABEA1D279A6400FD1D37 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignStudentToItemViewController.swift; sourceTree = "<group>"; };
 		E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransactionViewController.swift; sourceTree = "<group>"; };
+		E4E819D01D70177900945A6B /* existingTransactionCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = existingTransactionCellNib.xib; sourceTree = "<group>"; };
+		E4E819D21D70189500945A6B /* ExistingTransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransactionsViewController.swift; sourceTree = "<group>"; };
 		E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCompletedTransactionViewController.swift; sourceTree = "<group>"; };
 		E4F70D241D3F314000A82132 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
@@ -98,11 +102,11 @@
 		E44CF6F31D3CABC900DF0436 /* Current/New Transactions */ = {
 			isa = PBXGroup;
 			children = (
-				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
-				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
 				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
 				E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */,
 				E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */,
+				E468ABE51D2790D700FD1D37 /* CheckedOutItemsViewController.swift */,
+				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
 			);
 			name = "Current/New Transactions";
 			sourceTree = "<group>";
@@ -188,6 +192,8 @@
 				E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */,
 				E44CF7061D3E980D00DF0436 /* ExistingStudentOrItemNib.xib */,
 				E44CF7041D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift */,
+				E4E819D01D70177900945A6B /* existingTransactionCellNib.xib */,
+				E4E819D21D70189500945A6B /* ExistingTransactionTableViewCell.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				E44CF6FB1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib in Resources */,
 				E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */,
 				E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */,
+				E4E819D11D70177900945A6B /* existingTransactionCellNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +357,7 @@
 				E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */,
 				E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */,
 				E44CF7031D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift in Sources */,
+				E4E819D31D70189500945A6B /* ExistingTransactionTableViewCell.swift in Sources */,
 				E44CF7051D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift in Sources */,
 				E44CF7011D3E928500DF0436 /* ViewStudentOrItemViewController.swift in Sources */,
 				E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */,

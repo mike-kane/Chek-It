@@ -212,9 +212,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="studentsTableView" destination="oR6-bB-mSu" id="dWd-Z3-gTY"/>
+                        <segue destination="GTD-dw-qjj" kind="unwind" identifier="StudentSelectedSegue" unwindAction="unwindFromSelectionSegue:" id="fZ9-Gk-cZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bco-j8-V8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GTD-dw-qjj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1372.5" y="-1903.5"/>
         </scene>
@@ -246,9 +248,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="itemsTableView" destination="FbB-oy-8mn" id="sFx-fG-fsV"/>
+                        <segue destination="Zbm-EL-Ukn" kind="unwind" identifier="ItemSelectedSegue" unwindAction="unwindFromSelectionSegue:" id="GuB-DW-sJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Yb-zM-CSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zbm-EL-Ukn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="922.5" y="-1903.5"/>
         </scene>
@@ -264,12 +268,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-bU-zYV">
-                                <rect key="frame" x="0.0" y="136" width="375" height="482"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-bU-zYV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94607371799999995" green="0.94607371799999995" blue="0.94607371799999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HJl-bU-zYV" firstAttribute="top" secondItem="lt1-hv-RDa" secondAttribute="bottom" id="2wT-BM-1qu"/>
+                            <constraint firstItem="HJl-bU-zYV" firstAttribute="leading" secondItem="Vfu-eZ-7Cn" secondAttribute="leading" id="I47-4q-dDR"/>
+                            <constraint firstAttribute="trailing" secondItem="HJl-bU-zYV" secondAttribute="trailing" id="R38-ey-hUu"/>
+                            <constraint firstItem="HJl-bU-zYV" firstAttribute="bottom" secondItem="P5p-Ae-77b" secondAttribute="top" id="nDv-zg-Zah"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brh-Hu-Yyg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="O2T-2j-KqT">

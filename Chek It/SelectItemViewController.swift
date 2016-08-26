@@ -12,7 +12,7 @@ class SelectItemViewController: UIViewController {
 
     var itemSelected: Item!
     
-    var allAvailableItems = [Item]()
+    var allAvailableItems = RealmHelper.objects(Item)?.filter("isCheckedOut = false")
     
     @IBOutlet weak var itemsTableView: UITableView!
     
@@ -34,13 +34,17 @@ class SelectItemViewController: UIViewController {
 extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allAvailableItems.count
+        if let allAvailableItems = allAvailableItems {
+            return allAvailableItems.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! SelectItemOrStudentTableViewCell
         
-        let availableItem = allAvailableItems[indexPath.row]
+        let availableItem = allAvailableItems![indexPath.row]
         cell.setUpItemCell(availableItem)
         
         return cell

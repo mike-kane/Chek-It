@@ -5,11 +5,17 @@
 //  Created by Mike Kane on 7/1/16.
 //  Copyright © 2016 Mike Kane. All rights reserved.
 //
+//  TODO:
+//
 
 import UIKit
+import RealmSwift
 
 class CheckedOutItemsViewController: UIViewController {
 
+    // TODO:  Get all open transactions
+    //        Get items attached to transactions
+    //        Display items
     var currentTransactions = [Transaction]()
     
     override func viewDidLoad() {
@@ -27,15 +33,14 @@ class CheckedOutItemsViewController: UIViewController {
 
 }
 
-extension CheckedOutItemsViewController:  UICollectionViewDelegate, UICollectionViewDataSource {
+extension CheckedOutItemsViewController:  UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentTransactions.count
     }
     
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("transactionCell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("openTransactionCell", forIndexPath: indexPath)
         
         return cell
     }

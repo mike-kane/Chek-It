@@ -11,7 +11,7 @@ import UIKit
 class SelectStudentViewController: UIViewController {
     
     
-    var allStudents = [Student]()
+    var allStudents = RealmHelper.objects(Student)
     var studentSelected: Student!
     
     
@@ -36,13 +36,17 @@ class SelectStudentViewController: UIViewController {
 extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allStudents.count
+        if let allStudents = allStudents {
+            return allStudents.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath) as! SelectItemOrStudentTableViewCell
         
-        let availableStudent = allStudents[indexPath.row]
+        let availableStudent = allStudents![indexPath.row]
         
         cell.setUpStudentCell(availableStudent)
         

@@ -13,7 +13,7 @@ class Transaction: Object {
     
     dynamic var item: Item!
     dynamic var student: Student!
-    dynamic var dateCheckedOut: NSDate!
+    dynamic var dateCheckedOut: NSDate! = NSDate()
     dynamic var dateCheckedIn: NSDate?
     dynamic var transactionComplete = false
 
