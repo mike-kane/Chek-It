@@ -43,7 +43,7 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
         if let completedTransactions = completedTransactions {
             return completedTransactions.count
         } else {
-            return 1
+            return 0
         }
         
     }
