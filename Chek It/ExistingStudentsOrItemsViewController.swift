@@ -70,19 +70,9 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedIndex == 0 {//Items selected
-            if let allExistingItems = allExistingItems {
-                    return allExistingItems.count
-            } else {
-                return 0
-            }
-            
+            return allExistingItems?.count ?? 0
         } else {
-            if let allExistingStudents = allExistingStudents {
-                return allExistingStudents.count
-            } else {
-                return 0
-            }
-            
+             return allExistingStudents?.count ?? 0
         }
     }
     
