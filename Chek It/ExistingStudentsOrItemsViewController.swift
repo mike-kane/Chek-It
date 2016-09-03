@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExistingStudentsOrItemsViewController: UIViewController {
-
     var allExistingStudents = RealmHelper.objects(Student)
     var allExistingItems = RealmHelper.objects(Item)
     var selectedIndex = 0
@@ -37,6 +37,7 @@ class ExistingStudentsOrItemsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         entityTableView.reloadData()
+        print("break!")
     }
     
     override func viewDidLoad() {

@@ -10,7 +10,7 @@
 		DAA9A2C5D790BE7E3280C4A6 /* Pods_Chek_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423061E55A06ACA3BAB34674 /* Pods_Chek_It.framework */; };
 		E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */; };
 		E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */; };
-		E44CF6FB1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */; };
+		E44CF6FB1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */; };
 		E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */; };
 		E44CF6FF1D3CB50700DF0436 /* CreateNewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */; };
 		E44CF7011D3E928500DF0436 /* ViewStudentOrItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */; };
@@ -42,7 +42,7 @@
 		9A4F01985EBF92B698ABCC23 /* Pods-Chek It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chek It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chek It/Pods-Chek It.debug.xcconfig"; sourceTree = "<group>"; };
 		E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStudentViewController.swift; sourceTree = "<group>"; };
 		E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
-		E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemOrsStudentCellNib.xib; sourceTree = "<group>"; };
+		E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemOrStudentCellNib.xib; sourceTree = "<group>"; };
 		E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemOrStudentTableViewCell.swift; sourceTree = "<group>"; };
 		E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewStudentViewController.swift; sourceTree = "<group>"; };
 		E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStudentOrItemViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E44CF6F31D3CABC900DF0436 /* Current/New Transactions */ = {
+		E44CF6F31D3CABC900DF0436 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
 				E468ABEE1D279BC500FD1D37 /* ViewTransactionViewController.swift */,
@@ -108,19 +108,19 @@
 				E468ABE51D2790D700FD1D37 /* CurrentTransactionsViewController.swift */,
 				E468ABEC1D279B6500FD1D37 /* AssignStudentToItemViewController.swift */,
 			);
-			name = "Current/New Transactions";
+			name = Transactions;
 			sourceTree = "<group>";
 		};
-		E44CF6F41D3CABEB00DF0436 /* Previous Transactions */ = {
+		E44CF6F41D3CABEB00DF0436 /* History */ = {
 			isa = PBXGroup;
 			children = (
 				E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */,
 				E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */,
 			);
-			name = "Previous Transactions";
+			name = History;
 			sourceTree = "<group>";
 		};
-		E44CF6F51D3CABF600DF0436 /* Create Items/Students */ = {
+		E44CF6F51D3CABF600DF0436 /* Items/Students */ = {
 			isa = PBXGroup;
 			children = (
 				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
@@ -128,7 +128,7 @@
 				E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */,
 				E44CF7021D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift */,
 			);
-			name = "Create Items/Students";
+			name = Items/Students;
 			sourceTree = "<group>";
 		};
 		E468ABB81D27768C00FD1D37 = {
@@ -178,9 +178,9 @@
 		E468ABE11D2783C800FD1D37 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E44CF6F51D3CABF600DF0436 /* Create Items/Students */,
-				E44CF6F41D3CABEB00DF0436 /* Previous Transactions */,
-				E44CF6F31D3CABC900DF0436 /* Current/New Transactions */,
+				E44CF6F51D3CABF600DF0436 /* Items/Students */,
+				E44CF6F41D3CABEB00DF0436 /* History */,
+				E44CF6F31D3CABC900DF0436 /* Transactions */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 		E468ABE21D2783D400FD1D37 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				E44CF6FA1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib */,
+				E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */,
 				E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */,
 				E44CF7061D3E980D00DF0436 /* ExistingStudentOrItemNib.xib */,
 				E44CF7041D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift */,
@@ -271,7 +271,7 @@
 			files = (
 				E44CF7071D3E980D00DF0436 /* ExistingStudentOrItemNib.xib in Resources */,
 				E468ABCF1D27768D00FD1D37 /* LaunchScreen.storyboard in Resources */,
-				E44CF6FB1D3CAD7300DF0436 /* ItemOrsStudentCellNib.xib in Resources */,
+				E44CF6FB1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib in Resources */,
 				E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */,
 				E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */,
 				E4E819D11D70177900945A6B /* TransactionCellNib.xib in Resources */,
