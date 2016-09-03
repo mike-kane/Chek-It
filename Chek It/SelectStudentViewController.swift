@@ -23,6 +23,8 @@ class SelectStudentViewController: UIViewController {
         // Do any additional setup after loading the view.
         studentsTableView.delegate = self
         studentsTableView.dataSource = self
+        let nib = UINib(nibName: "ItemOrStudentCellNib", bundle: nil)
+        studentsTableView.registerNib(nib, forCellReuseIdentifier: "studentCell")
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,7 +24,8 @@ class SelectItemViewController: UIViewController {
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
-        //TODO: Populate allAvailableItems using db query
+        let nib = UINib(nibName: "ItemOrStudentCellNib", bundle: nil)
+        itemsTableView.registerNib(nib, forCellReuseIdentifier: "itemCell")
     }
 
 
