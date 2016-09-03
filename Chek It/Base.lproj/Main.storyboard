@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="2065.5" y="1186.5"/>
         </scene>
-        <!--Assign Student To Item View Controller-->
+        <!--Create Transaction View Controller-->
         <scene sceneID="K1o-1l-AnK">
             <objects>
-                <viewController id="HNO-sN-gOf" customClass="AssignStudentToItemViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HNO-sN-gOf" customClass="CreateTransactionViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tRN-zc-2Cl"/>
                         <viewControllerLayoutGuide type="bottom" id="t3v-lh-J3E"/>
@@ -185,7 +185,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="itemImageView" destination="HOI-Fi-it5" id="LSJ-69-EYq"/>
+                        <outlet property="itemImageView" destination="HOI-Fi-it5" id="78j-l9-vT0"/>
                         <outlet property="itemNameLabel" destination="lsW-NY-kZA" id="xeE-SE-XhY"/>
                         <outlet property="studentImageView" destination="NNk-D0-r8z" id="W1v-1f-Tet"/>
                         <outlet property="studentNameLabel" destination="7qR-od-UpY" id="DS9-tD-j6q"/>
@@ -281,7 +281,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-bU-zYV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-bU-zYV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>

@@ -32,7 +32,14 @@ class SelectStudentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "StudentSelectedSegue" {
+            let nextVC = segue.destinationViewController as! CreateTransactionViewController
+            nextVC.studentSelected = self.studentSelected
+        }
+    }
+    
+    
 }
 
 extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -53,5 +60,10 @@ extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegat
         cell.setUpStudentCell(availableStudent)
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        studentSelected = allStudents![indexPath.row]
+        performSegueWithIdentifier("StudentSelectedSegue", sender: nil)
     }
 }

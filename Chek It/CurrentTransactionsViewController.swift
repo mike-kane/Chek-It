@@ -12,10 +12,8 @@ import UIKit
 import RealmSwift
 
 class CurrentTransactionsViewController: UIViewController {
-
-    // TODO:  Get all open transactions
-    //        Get items attached to transactions
-    //        Display items
+    
+    var transactionSelected: Transaction!
     var currentTransactions = RealmHelper.objects(Transaction)?.filter("transactionComplete = false")
     
     @IBOutlet weak var transactionsTableView: UITableView!
@@ -24,13 +22,16 @@ class CurrentTransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: "TransactionCell", bundle: nil)
-        transactionsTableView.registerNib(nib, forCellReuseIdentifier: "TransactionCell")
-        
-        // Do any additional setup after loading the view.
+        let nib = UINib(nibName: "TransactionCellNib", bundle: nil)
+        transactionsTableView.registerNib(nib, forCellReuseIdentifier: "openTransactionCell")
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
         
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        transactionsTableView.reloadData()
     }
 
   
@@ -45,11 +46,7 @@ class CurrentTransactionsViewController: UIViewController {
 extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let currentTransactions = currentTransactions {
-            return currentTransactions.count
-        } else {
-            return 0
-        }
+        return currentTransactions?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,8 +54,8 @@ extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDa
         
         if let currentTransactions = currentTransactions {
             let transaction = currentTransactions[indexPath.row]
-            let student = transaction.student
-            let item = transaction.item
+            let student = transaction.student!
+            let item = transaction.item!
             let itemImage  = UIImage(data: item.picture)
             cell.itemImageView.image = itemImage!
             cell.itemNameLabel.text = item.itemName
@@ -66,8 +63,12 @@ extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDa
             cell.studentImageView.image = studentImage!
             cell.studentNameLabel.text = "\(student.lastName), \(student.firstName)"
         }
-        
         return cell
     }
     
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        transactionSelected = currentTransactions![indexPath.row]
+        performSegueWithIdentifier("viewTransactionSegue", sender: nil)
+    }
 }

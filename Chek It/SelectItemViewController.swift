@@ -27,8 +27,13 @@ class SelectItemViewController: UIViewController {
         let nib = UINib(nibName: "ItemOrStudentCellNib", bundle: nil)
         itemsTableView.registerNib(nib, forCellReuseIdentifier: "itemCell")
     }
-
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ItemSelectedSegue" {
+            let nextVC = segue.destinationViewController as! CreateTransactionViewController
+            nextVC.itemSelected = itemSelected
+        }
+    }
 }
 
 
@@ -49,5 +54,10 @@ extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setUpItemCell(availableItem)
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        itemSelected = allAvailableItems![indexPath.row]
+        performSegueWithIdentifier("ItemSelectedSegue", sender: nil)
     }
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewTransactionViewController: UIViewController {
-
+    
+    var transactionToView: Transaction!
     
     @IBOutlet weak var studentImageView: UIImageView!
     
@@ -37,6 +38,15 @@ class ViewTransactionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let student = transactionToView.student!
+        let item = transactionToView.item!
+        let studentImage = UIImage(data: student.picture)
+        let itemImage = UIImage(data: item.picture)
+        studentImageView.image = studentImage!
+        itemImageView.image = itemImage!
+        studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+        itemNameLabel.text = item.itemName
+        dateCheckedOutLabel.text = "\(transactionToView.dateCheckedOut)"
     }
 
 }
