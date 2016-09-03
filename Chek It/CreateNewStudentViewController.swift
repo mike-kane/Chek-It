@@ -60,12 +60,7 @@ class CreateNewStudentViewController: UIViewController {
             // One or more inputs is not valid; present error message
             presentViewController(failureAlert, animated: true, completion: nil)
         }
-        
-        
-        
-        
     }
-    
     
     func validateInputs() -> Bool {
         if firstNameTextField.text == nil || (firstNameTextField.text?.isEmpty)! {
@@ -87,5 +82,4 @@ class CreateNewStudentViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
 }

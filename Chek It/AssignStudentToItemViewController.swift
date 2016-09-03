@@ -1,5 +1,5 @@
 //
-//  AssignStudentToItemViewController.swift
+//  CreateTransactionViewController.swift
 //  Chek It
 //
 //  Created by Mike Kane on 7/1/16.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AssignStudentToItemViewController: UIViewController {
+class CreateTransactionViewController: UIViewController {
 
     var studentSelected: Student?
     var itemSelected: Item?
