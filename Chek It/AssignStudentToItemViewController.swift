@@ -87,7 +87,7 @@ class AssignStudentToItemViewController: UIViewController {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "StudentSelectedSegue" {
+        if segue.identifier == "SelectStudentSegue" {
             let sourceVC = segue.destinationViewController as! SelectStudentViewController
             self.studentSelected = sourceVC.studentSelected
         } else {
