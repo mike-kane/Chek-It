@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40494C71D7B909C00F4ACD1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48B4E201D7B8C6C0074DEB0 /* Realm.framework */; };
+		E40494C81D7B909C00F4ACD1 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E48B4E201D7B8C6C0074DEB0 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E40494C91D7B909C00F4ACD1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48B4E211D7B8C6C0074DEB0 /* RealmSwift.framework */; };
+		E40494CA1D7B909C00F4ACD1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E48B4E211D7B8C6C0074DEB0 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */; };
 		E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */; };
 		E44CF6FB1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */; };
@@ -36,6 +40,21 @@
 		E4E90DAC1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */; };
 		E4F70D251D3F314000A82132 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F70D241D3F314000A82132 /* RealmHelper.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E40494CB1D7B909D00F4ACD1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E40494CA1D7B909C00F4ACD1 /* RealmSwift.framework in Embed Frameworks */,
+				E40494C81D7B909C00F4ACD1 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStudentViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40494C71D7B909C00F4ACD1 /* Realm.framework in Frameworks */,
 				E48B4E231D7B8C6C0074DEB0 /* RealmSwift.framework in Frameworks */,
+				E40494C91D7B909C00F4ACD1 /* RealmSwift.framework in Frameworks */,
 				E48B4E221D7B8C6C0074DEB0 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +222,7 @@
 				E468ABBD1D27768D00FD1D37 /* Sources */,
 				E468ABBE1D27768D00FD1D37 /* Frameworks */,
 				E468ABBF1D27768D00FD1D37 /* Resources */,
+				E40494CB1D7B909D00F4ACD1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

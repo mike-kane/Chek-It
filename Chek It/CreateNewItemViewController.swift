@@ -46,6 +46,7 @@ class CreateNewItemViewController: UIViewController {
             let imageAsData: NSData = UIImagePNGRepresentation(scaledImage!)!
             newItem.picture = imageAsData
             newItem.add()
+            print("item added to realm!")
             presentViewController(successAlert, animated: true, completion: nil)
         } else {
             //User is missing image or item name.  Present failure alert action.

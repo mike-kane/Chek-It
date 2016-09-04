@@ -37,6 +37,7 @@ class ExistingStudentsOrItemsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         entityTableView.reloadData()
+        print("break!")
     }
     
     override func viewDidLoad() {
