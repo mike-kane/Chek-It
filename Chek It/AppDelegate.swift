@@ -19,7 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let realm = try! Realm()
+// Code to wipe realm db when schema changes are made
+//        do{
+//        try NSFileManager.defaultManager().removeItemAtURL(Realm.Configuration.defaultConfiguration.fileURL!)
+//        } catch {
+//            print("error")
+//        }
+//        let realm = try! Realm()
         return true
     }
 

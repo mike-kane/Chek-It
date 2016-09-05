@@ -39,7 +39,12 @@ class CurrentTransactionsViewController: UIViewController {
         
     }
 
-   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewTransactionSegue" {
+            let nextVC = segue.destinationViewController as! ViewTransactionViewController
+            nextVC.transactionToView = transactionSelected
+        }
+    }
 
 }
 

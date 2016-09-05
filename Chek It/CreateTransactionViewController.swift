@@ -45,6 +45,10 @@ class CreateTransactionViewController: UIViewController {
             successAlert.addAction(successAction)
             
             let newTransaction = Transaction()
+            itemSelected?.update {
+                self.itemSelected?.currentlyCheckedOutBy = self.studentSelected
+                self.itemSelected?.allTransactions.append(newTransaction)
+            }
             newTransaction.item = itemSelected
             newTransaction.student = studentSelected
             newTransaction.add()
