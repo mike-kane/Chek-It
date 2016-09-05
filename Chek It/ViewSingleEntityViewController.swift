@@ -1,5 +1,5 @@
 //
-//  ViewStudentOrItemViewController.swift
+//  ViewEntityViewController.swift
 //  Chek It
 //
 //  Created by Mike Kane on 7/19/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewStudentOrItemViewController: UIViewController {
+class ViewEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
@@ -24,6 +24,8 @@ class ViewStudentOrItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: <#T##String#>, bundle: <#T##NSBundle?#>)
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
