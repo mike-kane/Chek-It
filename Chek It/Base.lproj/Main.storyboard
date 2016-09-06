@@ -454,10 +454,10 @@
             </objects>
             <point key="canvasLocation" x="1575.5" y="410.5"/>
         </scene>
-        <!--View Student Or Item View Controller-->
+        <!--View Single Entity View Controller-->
         <scene sceneID="DU6-sf-3Xb">
             <objects>
-                <viewController id="Jxf-Z5-RXw" customClass="ViewStudentOrItemViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jxf-Z5-RXw" customClass="ViewSingleEntityViewController" customModule="Chek_It" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uak-BS-Jya"/>
                         <viewControllerLayoutGuide type="bottom" id="y6M-xD-QDj"/>
@@ -482,7 +482,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-FX-avt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-FX-avt">
                                 <rect key="frame" x="0.0" y="389" width="375" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -665,7 +665,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-lW-WBx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-lW-WBx">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -756,6 +756,14 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dateCheckedOutLabel" destination="I5Q-rm-0QA" id="w8U-fa-E7l"/>
+                        <outlet property="dateReturnedLabel" destination="L7z-Eb-laR" id="vEK-5r-Hy4"/>
+                        <outlet property="itemImageView" destination="Tei-C0-Y3m" id="Oj3-1i-YiZ"/>
+                        <outlet property="itemNameLabel" destination="NjB-DX-kQ3" id="9UY-CE-jQc"/>
+                        <outlet property="studentImageView" destination="uSZ-5K-9dt" id="x9h-IK-Hzt"/>
+                        <outlet property="studentNameLabel" destination="OKZ-j4-5w9" id="C2R-Ah-Nlj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu4-wx-Ciy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

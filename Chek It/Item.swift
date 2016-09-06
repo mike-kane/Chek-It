@@ -15,7 +15,7 @@ class Item: Object {
     dynamic var itemName: String!
     dynamic var isCheckedOut: Bool = false
     dynamic var picture: NSData!
-    var allTransactions: List<Transaction>! 
+    var allTransactions = List<Transaction>()
     var currentlyCheckedOutBy: Student?
     
 }

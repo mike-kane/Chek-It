@@ -4,9 +4,6 @@
 //
 //  Created by Mike Kane on 7/1/16.
 //  Copyright © 2016 Mike Kane. All rights reserved.
-//
-//  TODO:
-//
 
 import UIKit
 import RealmSwift
@@ -23,7 +20,7 @@ class CurrentTransactionsViewController: UIViewController {
         super.viewDidLoad()
 
         let nib = UINib(nibName: "TransactionCellNib", bundle: nil)
-        transactionsTableView.registerNib(nib, forCellReuseIdentifier: "openTransactionCell")
+        transactionsTableView.registerNib(nib, forCellReuseIdentifier: "TransactionCell")
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
         
@@ -55,7 +52,7 @@ extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("openTransactionCell", forIndexPath: indexPath) as! TransactionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TransactionCell", forIndexPath: indexPath) as! TransactionTableViewCell
         
         if let currentTransactions = currentTransactions {
             let transaction = currentTransactions[indexPath.row]

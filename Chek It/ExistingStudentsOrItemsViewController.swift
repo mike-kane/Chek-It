@@ -46,14 +46,14 @@ class ExistingStudentsOrItemsViewController: UIViewController {
         entityTableView.delegate = self
         entityTableView.dataSource = self
         
-        let nib = UINib(nibName: "ExistingStudentOrItemNib", bundle: nil)
+        let nib = UINib(nibName: "EntityNib", bundle: nil)
         entityTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewStudentOrItemSegue" {
             
-            let nextVC = segue.destinationViewController as! ViewStudentOrItemViewController
+            let nextVC = segue.destinationViewController as! ViewSingleEntityViewController
             nextVC.studentToView = studentSelected
             nextVC.itemToView = itemSelected
            
@@ -78,12 +78,12 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! ExistingStudentOrItemTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         if selectedIndex == 0 {                                     // Items selected
             if let allExistingItems = allExistingItems {
                 let item  = allExistingItems[indexPath.row]
-                cell.setUpItemCell(item)
+                cell.setUpItemCell(item, transaction: nil)
             }
         } else {                                                    // Students selected
             if let allExistingStudents = allExistingStudents {

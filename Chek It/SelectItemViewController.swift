@@ -48,10 +48,10 @@ extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! SelectItemOrStudentTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         let availableItem = allAvailableItems![indexPath.row]
-        cell.setUpItemCell(availableItem)
+        cell.setUpItemCell(availableItem, transaction: nil)
         
         return cell
     }

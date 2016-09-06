@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="openTransactionCell" rowHeight="86" id="yUq-u8-xIU" customClass="TransactionTableViewCell" customModule="Chek_It" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" rowHeight="86" id="yUq-u8-xIU" customClass="TransactionTableViewCell" customModule="Chek_It" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="424" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUq-u8-xIU" id="KRS-dY-gr2">

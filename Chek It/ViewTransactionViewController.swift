@@ -29,11 +29,11 @@ class ViewTransactionViewController: UIViewController {
         //Remove from open transactions list
         //Move to completed transactions list
         //unwind to transactionsVC
-        transactionToView.transactionComplete = true
-        transactionToView.dateCheckedIn = NSDate()
-        transactionToView.item?.allTransactions.append(transactionToView)
-        transactionToView.item?.currentlyCheckedOutBy = nil
-        
+        transactionToView.update {
+            self.transactionToView.transactionComplete = true
+            self.transactionToView.dateCheckedIn = NSDate()
+            self.transactionToView.item?.currentlyCheckedOutBy = nil
+        }
         performSegueWithIdentifier("unwindToTransactionsVCSegue", sender: nil)
     }
     

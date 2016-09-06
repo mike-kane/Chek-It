@@ -1,5 +1,5 @@
 //
-//  ViewEntityViewController.swift
+//  ViewSingleEntityViewController.swift
 //  Chek It
 //
 //  Created by Mike Kane on 7/19/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewEntityViewController: UIViewController {
+class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
@@ -25,7 +25,8 @@ class ViewEntityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: <#T##String#>, bundle: <#T##NSBundle?#>)
+        let nib = UINib(nibName: "EntityNib", bundle: nil)
+        historyTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
@@ -42,7 +43,7 @@ class ViewEntityViewController: UIViewController {
     }
 }
 
-extension ViewStudentOrItemViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if studentOrItem == "Student" {
@@ -53,7 +54,13 @@ extension ViewStudentOrItemViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
+        
+        if studentOrItem == "Student" {
+            cell.setUpStudentCell(studentToView!)
+        } else {
+            cell.setUpItemCell(itemToView!, transaction: nil)
+        }
         
         return cell
     }

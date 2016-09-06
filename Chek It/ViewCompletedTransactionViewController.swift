@@ -10,28 +10,39 @@ import UIKit
 
 class ViewCompletedTransactionViewController: UIViewController {
     
-    var transactionToView: Transaction!
+    var completedTransactionToView: Transaction!
+    var item: Item!
+    var student: Student!
 
+    @IBOutlet weak var itemImageView: UIImageView!
+   
+    @IBOutlet weak var studentImageView: UIImageView!
+    
+    @IBOutlet weak var studentNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var itemNameLabel: UILabel!
+    
+    @IBOutlet weak var dateCheckedOutLabel: UILabel!
+    
+    @IBOutlet weak var dateReturnedLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        item = completedTransactionToView.item
+        student = completedTransactionToView.student
+        itemImageView.image = UIImage(data: item.picture)
+        studentImageView.image = UIImage(data: student.picture)
+        studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+        itemNameLabel.text = item.itemName
+        dateCheckedOutLabel.text = "Checked Out:\(completedTransactionToView.dateCheckedOut)"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        let returnDateString = dateFormatter.stringFromDate(completedTransactionToView.dateCheckedIn!)
+        dateReturnedLabel.text = "Returned: \(returnDateString)"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

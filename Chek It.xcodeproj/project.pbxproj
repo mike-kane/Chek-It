@@ -13,13 +13,11 @@
 		E40494CA1D7B909C00F4ACD1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E48B4E211D7B8C6C0074DEB0 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */; };
 		E44CF6F91D3CACCA00DF0436 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */; };
-		E44CF6FB1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */; };
-		E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */; };
 		E44CF6FF1D3CB50700DF0436 /* CreateNewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */; };
-		E44CF7011D3E928500DF0436 /* ViewStudentOrItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */; };
+		E44CF7011D3E928500DF0436 /* ViewSingleEntityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7001D3E928500DF0436 /* ViewSingleEntityViewController.swift */; };
 		E44CF7031D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7021D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift */; };
-		E44CF7051D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7041D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift */; };
-		E44CF7071D3E980D00DF0436 /* ExistingStudentOrItemNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF7061D3E980D00DF0436 /* ExistingStudentOrItemNib.xib */; };
+		E44CF7051D3E97FE00DF0436 /* EntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF7041D3E97FE00DF0436 /* EntityTableViewCell.swift */; };
+		E44CF7071D3E980D00DF0436 /* EntityNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF7061D3E980D00DF0436 /* EntityNib.xib */; };
 		E468ABC51D27768D00FD1D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468ABC41D27768D00FD1D37 /* AppDelegate.swift */; };
 		E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E468ABC81D27768D00FD1D37 /* Main.storyboard */; };
 		E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E468ABCB1D27768D00FD1D37 /* Assets.xcassets */; };
@@ -59,13 +57,11 @@
 /* Begin PBXFileReference section */
 		E44CF6F61D3CACC100DF0436 /* SelectStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStudentViewController.swift; sourceTree = "<group>"; };
 		E44CF6F81D3CACCA00DF0436 /* SelectItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
-		E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemOrStudentCellNib.xib; sourceTree = "<group>"; };
-		E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemOrStudentTableViewCell.swift; sourceTree = "<group>"; };
 		E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewStudentViewController.swift; sourceTree = "<group>"; };
-		E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStudentOrItemViewController.swift; sourceTree = "<group>"; };
+		E44CF7001D3E928500DF0436 /* ViewSingleEntityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSingleEntityViewController.swift; sourceTree = "<group>"; };
 		E44CF7021D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingStudentsOrItemsViewController.swift; sourceTree = "<group>"; };
-		E44CF7041D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingStudentOrItemTableViewCell.swift; sourceTree = "<group>"; };
-		E44CF7061D3E980D00DF0436 /* ExistingStudentOrItemNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingStudentOrItemNib.xib; sourceTree = "<group>"; };
+		E44CF7041D3E97FE00DF0436 /* EntityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityTableViewCell.swift; sourceTree = "<group>"; };
+		E44CF7061D3E980D00DF0436 /* EntityNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntityNib.xib; sourceTree = "<group>"; };
 		E468ABC11D27768D00FD1D37 /* Chek It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chek It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E468ABC41D27768D00FD1D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E468ABC91D27768D00FD1D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,7 +126,7 @@
 			children = (
 				E468ABE31D2790C300FD1D37 /* CreateNewItemViewController.swift */,
 				E44CF6FE1D3CB50700DF0436 /* CreateNewStudentViewController.swift */,
-				E44CF7001D3E928500DF0436 /* ViewStudentOrItemViewController.swift */,
+				E44CF7001D3E928500DF0436 /* ViewSingleEntityViewController.swift */,
 				E44CF7021D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift */,
 			);
 			name = Items/Students;
@@ -193,10 +189,8 @@
 		E468ABE21D2783D400FD1D37 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				E44CF6FA1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib */,
-				E44CF6FC1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift */,
-				E44CF7061D3E980D00DF0436 /* ExistingStudentOrItemNib.xib */,
-				E44CF7041D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift */,
+				E44CF7061D3E980D00DF0436 /* EntityNib.xib */,
+				E44CF7041D3E97FE00DF0436 /* EntityTableViewCell.swift */,
 				E4E819D01D70177900945A6B /* TransactionCellNib.xib */,
 				E4E819D21D70189500945A6B /* TransactionTableViewCell.swift */,
 			);
@@ -271,9 +265,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E44CF7071D3E980D00DF0436 /* ExistingStudentOrItemNib.xib in Resources */,
+				E44CF7071D3E980D00DF0436 /* EntityNib.xib in Resources */,
 				E468ABCF1D27768D00FD1D37 /* LaunchScreen.storyboard in Resources */,
-				E44CF6FB1D3CAD7300DF0436 /* ItemOrStudentCellNib.xib in Resources */,
 				E468ABCC1D27768D00FD1D37 /* Assets.xcassets in Resources */,
 				E468ABCA1D27768D00FD1D37 /* Main.storyboard in Resources */,
 				E4E819D11D70177900945A6B /* TransactionCellNib.xib in Resources */,
@@ -294,11 +287,10 @@
 				E468ABEB1D279A6400FD1D37 /* Transaction.swift in Sources */,
 				E468ABE41D2790C300FD1D37 /* CreateNewItemViewController.swift in Sources */,
 				E468ABE81D27997E00FD1D37 /* PhotoHelper.swift in Sources */,
-				E44CF6FD1D3CAE1400DF0436 /* SelectItemOrStudentTableViewCell.swift in Sources */,
 				E44CF7031D3E95B700DF0436 /* ExistingStudentsOrItemsViewController.swift in Sources */,
 				E4E819D31D70189500945A6B /* TransactionTableViewCell.swift in Sources */,
-				E44CF7051D3E97FE00DF0436 /* ExistingStudentOrItemTableViewCell.swift in Sources */,
-				E44CF7011D3E928500DF0436 /* ViewStudentOrItemViewController.swift in Sources */,
+				E44CF7051D3E97FE00DF0436 /* EntityTableViewCell.swift in Sources */,
+				E44CF7011D3E928500DF0436 /* ViewSingleEntityViewController.swift in Sources */,
 				E44CF6F71D3CACC100DF0436 /* SelectStudentViewController.swift in Sources */,
 				E468ABED1D279B6500FD1D37 /* CreateTransactionViewController.swift in Sources */,
 				E468ABE61D2790D700FD1D37 /* CurrentTransactionsViewController.swift in Sources */,

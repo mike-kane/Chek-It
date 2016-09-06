@@ -53,7 +53,7 @@ extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath) as! SelectItemOrStudentTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         let availableStudent = allStudents![indexPath.row]
         

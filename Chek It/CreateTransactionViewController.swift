@@ -5,7 +5,6 @@
 //  Created by Mike Kane on 7/1/16.
 //  Copyright © 2016 Mike Kane. All rights reserved.
 // 
-// TODO: Finish this VC!
 
 import UIKit
 
@@ -45,13 +44,14 @@ class CreateTransactionViewController: UIViewController {
             successAlert.addAction(successAction)
             
             let newTransaction = Transaction()
+            newTransaction.item = itemSelected
+            newTransaction.student = studentSelected
+            newTransaction.add()
             itemSelected?.update {
                 self.itemSelected?.currentlyCheckedOutBy = self.studentSelected
                 self.itemSelected?.allTransactions.append(newTransaction)
             }
-            newTransaction.item = itemSelected
-            newTransaction.student = studentSelected
-            newTransaction.add()
+            
             presentViewController(successAlert, animated: true, completion: nil)
         } else {
             let failureaAlert = UIAlertController(title: "Error!", message: "You must select a student and an item.", preferredStyle: .Alert)

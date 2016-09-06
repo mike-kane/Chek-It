@@ -1,5 +1,5 @@
 //
-//  ExistingStudentOrItemTableViewCell.swift
+//  EntityTableViewCell.swift
 //  Chek It
 //
 //  Created by Mike Kane on 7/19/16.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ExistingStudentOrItemTableViewCell: UITableViewCell {
+class EntityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var entityImageView: UIImageView!
 
     @IBOutlet weak var entityNameLabel: UILabel!
+    
+    @IBOutlet weak var dateCheckedOutLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,11 +27,15 @@ class ExistingStudentOrItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpItemCell(item: Item) {
+    func setUpItemCell(item: Item, transaction: Transaction?) {
         entityImageView.image = UIImage(data: item.picture)
         entityNameLabel.text = item.itemName
+        
+        if let transaction = transaction {
+            dateCheckedOutLabel.text = transaction.dateCheckedOut 
+        }
+        
     }
-    
     
     func setUpStudentCell(student: Student) {
         entityImageView.image = UIImage(data: student.picture)

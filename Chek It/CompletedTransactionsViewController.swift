@@ -31,7 +31,7 @@ class CompletedTransactionsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewCompletedTransactionSegue" {
             let nextVC = segue.destinationViewController as! ViewCompletedTransactionViewController
-            nextVC.transactionToView = self.transactionSelected
+            nextVC.completedTransactionToView = self.transactionSelected
         }
     }
 
