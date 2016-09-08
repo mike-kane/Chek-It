@@ -24,8 +24,8 @@ class SelectItemViewController: UIViewController {
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
-        let nib = UINib(nibName: "ItemOrStudentCellNib", bundle: nil)
-        itemsTableView.registerNib(nib, forCellReuseIdentifier: "itemCell")
+        let nib = UINib(nibName: "EntityNib", bundle: nil)
+        itemsTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,7 +48,7 @@ extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! EntityTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         let availableItem = allAvailableItems![indexPath.row]
         cell.setUpItemCell(availableItem, transaction: nil)

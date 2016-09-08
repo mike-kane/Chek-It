@@ -23,8 +23,8 @@ class SelectStudentViewController: UIViewController {
         // Do any additional setup after loading the view.
         studentsTableView.delegate = self
         studentsTableView.dataSource = self
-        let nib = UINib(nibName: "ItemOrStudentCellNib", bundle: nil)
-        studentsTableView.registerNib(nib, forCellReuseIdentifier: "studentCell")
+        let nib = UINib(nibName: "EntityNib", bundle: nil)
+        studentsTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +53,7 @@ extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath) as! EntityTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         let availableStudent = allStudents![indexPath.row]
         
