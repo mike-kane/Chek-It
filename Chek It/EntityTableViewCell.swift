@@ -33,13 +33,21 @@ class EntityTableViewCell: UITableViewCell {
         
         if let transaction = transaction {
             dateCheckedOutLabel.text = transaction.dateCheckedOut 
+        } else {
+            dateCheckedOutLabel.text = ""
         }
         
     }
     
-    func setUpStudentCell(student: Student) {
+    func setUpStudentCell(student: Student, transaction: Transaction?) {
         entityImageView.image = UIImage(data: student.picture)
         entityNameLabel.text = "\(student.lastName), \(student.firstName)"
+        
+        if let transaction = transaction {
+            dateCheckedOutLabel.text = "Checked Out: \(transaction.dateCheckedOut)"
+        } else {
+            dateCheckedOutLabel.text = ""
+        }
     }
 
 }

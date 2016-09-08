@@ -47,9 +47,9 @@ extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if studentOrItem == "Student" {
-            return studentToView!.transactionHistory.count
+            return 5
         } else {
-            return (itemToView?.allTransactions.count)!
+            return 5
         }
     }
     
@@ -57,8 +57,11 @@ extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
         
         if studentOrItem == "Student" {
-            cell.setUpStudentCell(studentToView!)
+            
+            //let transaction: Transaction? = studentHistory[indexPath.row]
+            cell.setUpStudentCell(studentToView!, transaction: nil)
         } else {
+            //let itemHistory = itemToView!.allTransactions
             cell.setUpItemCell(itemToView!, transaction: nil)
         }
         

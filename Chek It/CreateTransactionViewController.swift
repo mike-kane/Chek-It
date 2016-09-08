@@ -49,7 +49,7 @@ class CreateTransactionViewController: UIViewController {
             newTransaction.add()
             itemSelected?.update {
                 self.itemSelected?.currentlyCheckedOutBy = self.studentSelected
-                self.itemSelected?.allTransactions.append(newTransaction)
+                //self.itemSelected?.allTransactions.append(newTransaction)
             }
             
             presentViewController(successAlert, animated: true, completion: nil)

@@ -14,6 +14,5 @@ class Student: Object {
     dynamic var firstName: String!
     dynamic var lastName: String!
     dynamic var picture: NSData!
-    var transactionHistory = LinkingObjects(fromType: Student.self, property: "student").filter("transactionComplete = true")
-    var openTransactions = LinkingObjects(fromType: Student.self, property: "student").filter("transactionComplete = false")
+    
 }

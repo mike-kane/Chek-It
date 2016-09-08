@@ -84,11 +84,13 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
             if let allExistingItems = allExistingItems {
                 let item  = allExistingItems[indexPath.row]
                 cell.setUpItemCell(item, transaction: nil)
+                cell.dateCheckedOutLabel.text = ""
             }
         } else {                                                    // Students selected
             if let allExistingStudents = allExistingStudents {
                 let student = allExistingStudents[indexPath.row]
-                cell.setUpStudentCell(student)
+                cell.setUpStudentCell(student, transaction: nil)
+                cell.dateCheckedOutLabel.text = ""
             }
         }
         return cell

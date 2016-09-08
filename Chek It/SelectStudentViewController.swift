@@ -57,7 +57,7 @@ extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegat
         
         let availableStudent = allStudents![indexPath.row]
         
-        cell.setUpStudentCell(availableStudent)
+        cell.setUpStudentCell(availableStudent, transaction: nil)
         
         return cell
     }
