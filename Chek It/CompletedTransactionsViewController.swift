@@ -22,15 +22,15 @@ class CompletedTransactionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let nib = UINib(nibName: "TransactionCellNib", bundle: nil)
-        completedTransactionsTableView.registerNib(nib, forCellReuseIdentifier: "TransactionCell")
+        completedTransactionsTableView.register(nib, forCellReuseIdentifier: "TransactionCell")
         completedTransactionsTableView.delegate = self
         completedTransactionsTableView.dataSource = self
     }
 
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewCompletedTransactionSegue" {
-            let nextVC = segue.destinationViewController as! ViewCompletedTransactionViewController
+            let nextVC = segue.destination as! ViewCompletedTransactionViewController
             nextVC.completedTransactionToView = self.transactionSelected
         }
     }
@@ -39,7 +39,7 @@ class CompletedTransactionsViewController: UIViewController {
 
 extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let completedTransactions = completedTransactions {
             return completedTransactions.count
         } else {
@@ -48,11 +48,11 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TransactionCell", forIndexPath: indexPath) as! TransactionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
         
         if let completedTransactions = completedTransactions {
-            let transaction = completedTransactions[indexPath.row]
+            let transaction = completedTransactions[(indexPath as NSIndexPath).row]
             let student = transaction.student!
             let item = transaction.item!
             let itemImage  = UIImage(data: item.picture)
@@ -66,8 +66,8 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        transactionSelected = completedTransactions![indexPath.row]
-        self.performSegueWithIdentifier("viewCompletedTransactionSegue", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        transactionSelected = completedTransactions![(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: "viewCompletedTransactionSegue", sender: nil)
     }
 }

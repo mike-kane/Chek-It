@@ -23,7 +23,7 @@ class ViewTransactionViewController: UIViewController {
     @IBOutlet weak var dateCheckedOutLabel: UILabel!
     
     
-    @IBAction func returnedButtonPressed(sender: AnyObject) {
+    @IBAction func returnedButtonPressed(_ sender: AnyObject) {
         
         //Mark transaction as complete.
         //Remove from open transactions list
@@ -31,10 +31,10 @@ class ViewTransactionViewController: UIViewController {
         //unwind to transactionsVC
         transactionToView.update {
             self.transactionToView.transactionComplete = true
-            self.transactionToView.dateCheckedIn = NSDate()
+            self.transactionToView.dateCheckedIn = Date()
             self.transactionToView.item?.currentlyCheckedOutBy = nil
         }
-        performSegueWithIdentifier("unwindToTransactionsVCSegue", sender: nil)
+        performSegue(withIdentifier: "unwindToTransactionsVCSegue", sender: nil)
     }
     
     
@@ -45,8 +45,8 @@ class ViewTransactionViewController: UIViewController {
         // Do any additional setup after loading the view.
         let student = transactionToView.student!
         let item = transactionToView.item!
-        let studentImage = UIImage(data: student.picture)
-        let itemImage = UIImage(data: item.picture)
+        let studentImage = UIImage(data: student.picture as Data)
+        let itemImage = UIImage(data: item.picture as Data)
         studentImageView.image = studentImage!
         itemImageView.image = itemImage!
         studentNameLabel.text = "\(student.lastName), \(student.firstName)"

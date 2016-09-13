@@ -20,25 +20,25 @@ class CurrentTransactionsViewController: UIViewController {
         super.viewDidLoad()
 
         let nib = UINib(nibName: "TransactionCellNib", bundle: nil)
-        transactionsTableView.registerNib(nib, forCellReuseIdentifier: "TransactionCell")
+        transactionsTableView.register(nib, forCellReuseIdentifier: "TransactionCell")
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
         
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         transactionsTableView.reloadData()
     }
 
   
-    @IBAction func unwindToTransactionsSegue(segue: UIStoryboardSegue) {
+    @IBAction func unwindToTransactionsSegue(_ segue: UIStoryboardSegue) {
         
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewTransactionSegue" {
-            let nextVC = segue.destinationViewController as! ViewTransactionViewController
+            let nextVC = segue.destination as! ViewTransactionViewController
             nextVC.transactionToView = transactionSelected
         }
     }
@@ -47,15 +47,15 @@ class CurrentTransactionsViewController: UIViewController {
 
 extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentTransactions?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TransactionCell", forIndexPath: indexPath) as! TransactionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
         
         if let currentTransactions = currentTransactions {
-            let transaction = currentTransactions[indexPath.row]
+            let transaction = currentTransactions[(indexPath as NSIndexPath).row]
             let student = transaction.student!
             let item = transaction.item!
             let itemImage  = UIImage(data: item.picture)
@@ -69,8 +69,8 @@ extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDa
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        transactionSelected = currentTransactions![indexPath.row]
-        performSegueWithIdentifier("viewTransactionSegue", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        transactionSelected = currentTransactions![(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "viewTransactionSegue", sender: nil)
     }
 }

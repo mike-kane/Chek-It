@@ -21,14 +21,14 @@ class EntityTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setUpItemCell(item: Item, transaction: Transaction?) {
-        entityImageView.image = UIImage(data: item.picture)
+    func setUpItemCell(_ item: Item, transaction: Transaction?) {
+        entityImageView.image = UIImage(data: item.picture as Data)
         entityNameLabel.text = item.itemName
         
         if let transaction = transaction {
@@ -39,8 +39,8 @@ class EntityTableViewCell: UITableViewCell {
         
     }
     
-    func setUpStudentCell(student: Student, transaction: Transaction?) {
-        entityImageView.image = UIImage(data: student.picture)
+    func setUpStudentCell(_ student: Student, transaction: Transaction?) {
+        entityImageView.image = UIImage(data: student.picture as Data)
         entityNameLabel.text = "\(student.lastName), \(student.firstName)"
         
         if let transaction = transaction {

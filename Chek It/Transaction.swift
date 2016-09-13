@@ -14,12 +14,12 @@ class Transaction: Object {
     dynamic var item: Item?
     dynamic var student: Student?
     dynamic var dateCheckedOut: String {
-        let formatter = NSDateFormatter()
-        let date = NSDate()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        return formatter.stringFromDate(date)
+        let formatter = DateFormatter()
+        let date = Date()
+        formatter.dateStyle = DateFormatter.Style.short
+        return formatter.string(from: date)
     }
-    dynamic var dateCheckedIn: NSDate?
+    dynamic var dateCheckedIn: Date?
     dynamic var transactionComplete = false
 
     

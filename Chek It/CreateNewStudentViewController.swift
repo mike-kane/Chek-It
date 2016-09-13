@@ -19,7 +19,7 @@ class CreateNewStudentViewController: UIViewController {
     
     var photoHelper: PhotoHelper?
     
-    @IBAction func addStudentPhotoButtonPressed(sender: AnyObject) {
+    @IBAction func addStudentPhotoButtonPressed(_ sender: AnyObject) {
         photoHelper = PhotoHelper(viewController: self) { (image: UIImage?) in
             if let image = image {
                 self.newStudentImageView.image = image
@@ -27,16 +27,16 @@ class CreateNewStudentViewController: UIViewController {
         }
     }
     
-    @IBAction func createStudentButtonPressed(sender: AnyObject) {
+    @IBAction func createStudentButtonPressed(_ sender: AnyObject) {
         
         if validateInputs() {
             // All inputs are valid.  Create student object and save to Realm DB
             
             // Create success alert controller.  Pop navigation view on acknowledgment
-            let successAlert = UIAlertController(title: "Success!", message: "Student has been saved.", preferredStyle: .Alert)
-            let successAction = UIAlertAction(title: "OK", style: .Default, handler: {
+            let successAlert = UIAlertController(title: "Success!", message: "Student has been saved.", preferredStyle: .alert)
+            let successAction = UIAlertAction(title: "OK", style: .default, handler: {
                 action in
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewController(animated: true)
             })
             successAlert.addAction(successAction)
             
@@ -49,16 +49,16 @@ class CreateNewStudentViewController: UIViewController {
             newStudent.picture = imageAsData
             newStudent.add()
             
-            presentViewController(successAlert, animated: true, completion: nil)
+            present(successAlert, animated: true, completion: nil)
             
         } else {
             
             // One or more errors.  Create failure alert and present to user.  Does not pop VC from Nav Stack
-            let failureAlert = UIAlertController(title: "Error!", message: "All students must have a picture, first name, and last name.", preferredStyle: .Alert)
-            let failureAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            let failureAlert = UIAlertController(title: "Error!", message: "All students must have a picture, first name, and last name.", preferredStyle: .alert)
+            let failureAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             failureAlert.addAction(failureAction)
             // One or more inputs is not valid; present error message
-            presentViewController(failureAlert, animated: true, completion: nil)
+            present(failureAlert, animated: true, completion: nil)
         }
     }
     

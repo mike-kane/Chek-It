@@ -25,12 +25,12 @@ class SelectItemViewController: UIViewController {
         itemsTableView.delegate = self
         
         let nib = UINib(nibName: "EntityNib", bundle: nil)
-        itemsTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
+        itemsTableView.register(nib, forCellReuseIdentifier: "entityCell")
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemSelectedSegue" {
-            let nextVC = segue.destinationViewController as! CreateTransactionViewController
+            let nextVC = segue.destination as! CreateTransactionViewController
             nextVC.itemSelected = itemSelected
         }
     }
@@ -39,7 +39,7 @@ class SelectItemViewController: UIViewController {
 
 extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let allAvailableItems = allAvailableItems {
             return allAvailableItems.count
         } else {
@@ -47,17 +47,17 @@ extension SelectItemViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entityCell", for: indexPath) as! EntityTableViewCell
         
-        let availableItem = allAvailableItems![indexPath.row]
+        let availableItem = allAvailableItems![(indexPath as NSIndexPath).row]
         cell.setUpItemCell(availableItem, transaction: nil)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        itemSelected = allAvailableItems![indexPath.row]
-        performSegueWithIdentifier("ItemSelectedSegue", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemSelected = allAvailableItems![(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "ItemSelectedSegue", sender: nil)
     }
 }

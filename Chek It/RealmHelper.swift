@@ -11,7 +11,7 @@ import RealmSwift
 
 class RealmHelper {
     
-    static func objects<T: Object>(type: T.Type) -> Results<T>? {
+    static func objects<T: Object>(_ type: T.Type) -> Results<T>? {
         
         let realm = try? Realm()
         
@@ -28,7 +28,7 @@ extension Object {
         }
     }
     
-    func update(updateBlock: () -> ()) {
+    func update(_ updateBlock: () -> ()) {
         let realm = try? Realm()
         try! realm?.write(updateBlock)
     }

@@ -24,7 +24,7 @@ class SelectStudentViewController: UIViewController {
         studentsTableView.delegate = self
         studentsTableView.dataSource = self
         let nib = UINib(nibName: "EntityNib", bundle: nil)
-        studentsTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
+        studentsTableView.register(nib, forCellReuseIdentifier: "entityCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,9 +32,9 @@ class SelectStudentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StudentSelectedSegue" {
-            let nextVC = segue.destinationViewController as! CreateTransactionViewController
+            let nextVC = segue.destination as! CreateTransactionViewController
             nextVC.studentSelected = self.studentSelected
         }
     }
@@ -42,7 +42,7 @@ class SelectStudentViewController: UIViewController {
 
 extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let allStudents = allStudents {
             return allStudents.count
         } else {
@@ -50,18 +50,18 @@ extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entityCell", for: indexPath) as! EntityTableViewCell
         
-        let availableStudent = allStudents![indexPath.row]
+        let availableStudent = allStudents![(indexPath as NSIndexPath).row]
         
         cell.setUpStudentCell(availableStudent, transaction: nil)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        studentSelected = allStudents![indexPath.row]
-        performSegueWithIdentifier("StudentSelectedSegue", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        studentSelected = allStudents![(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "StudentSelectedSegue", sender: nil)
     }
 }

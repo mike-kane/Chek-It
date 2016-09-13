@@ -32,14 +32,14 @@ class ViewCompletedTransactionViewController: UIViewController {
         super.viewDidLoad()
         item = completedTransactionToView.item
         student = completedTransactionToView.student
-        itemImageView.image = UIImage(data: item.picture)
-        studentImageView.image = UIImage(data: student.picture)
+        itemImageView.image = UIImage(data: item.picture as Data)
+        studentImageView.image = UIImage(data: student.picture as Data)
         studentNameLabel.text = "\(student.lastName), \(student.firstName)"
         itemNameLabel.text = item.itemName
         dateCheckedOutLabel.text = "Checked Out:\(completedTransactionToView.dateCheckedOut)"
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        let returnDateString = dateFormatter.stringFromDate(completedTransactionToView.dateCheckedIn!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        let returnDateString = dateFormatter.string(from: completedTransactionToView.dateCheckedIn! as Date)
         dateReturnedLabel.text = "Returned: \(returnDateString)"
     }
 

@@ -21,25 +21,25 @@ class CreateTransactionViewController: UIViewController {
     
     @IBOutlet weak var studentNameLabel: UILabel!
     
-    @IBAction func addItemButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("selectItemSegue", sender: nil)
+    @IBAction func addItemButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "selectItemSegue", sender: nil)
     }
     
-    @IBAction func addStudentButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("SelectStudentSegue", sender: nil)
+    @IBAction func addStudentButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "SelectStudentSegue", sender: nil)
     }
     
-    @IBAction func unwindFromSelectionSegue(segue: UIStoryboardSegue) {
+    @IBAction func unwindFromSelectionSegue(_ segue: UIStoryboardSegue) {
         
     }
     
     
-    @IBAction func completeButtonPressed(sender: AnyObject) {
+    @IBAction func completeButtonPressed(_ sender: AnyObject) {
         if validateSelections() {
-            let successAlert = UIAlertController(title: "Success!", message: "Item has been checked out successfully!", preferredStyle: .Alert)
-            let successAction = UIAlertAction(title: "OK", style: .Default) {
+            let successAlert = UIAlertController(title: "Success!", message: "Item has been checked out successfully!", preferredStyle: .alert)
+            let successAction = UIAlertAction(title: "OK", style: .default) {
                 action in
-                    self.navigationController?.popViewControllerAnimated(true)
+                    self.navigationController?.popViewController(animated: true)
             }
             successAlert.addAction(successAction)
             
@@ -52,12 +52,12 @@ class CreateTransactionViewController: UIViewController {
                 //self.itemSelected?.allTransactions.append(newTransaction)
             }
             
-            presentViewController(successAlert, animated: true, completion: nil)
+            present(successAlert, animated: true, completion: nil)
         } else {
-            let failureaAlert = UIAlertController(title: "Error!", message: "You must select a student and an item.", preferredStyle: .Alert)
-            let failureAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            let failureaAlert = UIAlertController(title: "Error!", message: "You must select a student and an item.", preferredStyle: .alert)
+            let failureAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             failureaAlert.addAction(failureAction)
-            presentViewController(failureaAlert, animated: true, completion: nil)
+            present(failureaAlert, animated: true, completion: nil)
         }
     }
     
@@ -71,9 +71,9 @@ class CreateTransactionViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if let studentSelected = studentSelected {
-            let studentImage = UIImage(data: studentSelected.picture)
+            let studentImage = UIImage(data: studentSelected.picture as Data)
             self.studentImageView.image = studentImage!
             self.studentNameLabel.text = "\(studentSelected.lastName), \(studentSelected.firstName)"
         } else {
@@ -81,7 +81,7 @@ class CreateTransactionViewController: UIViewController {
         }
         
         if let itemSelected = itemSelected {
-            let itemImage = UIImage(data: itemSelected.picture)
+            let itemImage = UIImage(data: itemSelected.picture as Data)
             itemImageView.image = itemImage!
             itemNameLabel.text = "\(itemSelected.itemName)"
         } else {
@@ -90,12 +90,12 @@ class CreateTransactionViewController: UIViewController {
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectStudentSegue" {
-            let sourceVC = segue.destinationViewController as! SelectStudentViewController
+            let sourceVC = segue.destination as! SelectStudentViewController
             self.studentSelected = sourceVC.studentSelected
         } else {
-            let sourceVC = segue.destinationViewController as! SelectItemViewController
+            let sourceVC = segue.destination as! SelectItemViewController
             self.itemSelected = sourceVC.itemSelected
         }
     }

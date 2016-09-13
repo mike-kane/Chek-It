@@ -19,7 +19,7 @@ class CreateNewItemViewController: UIViewController {
     @IBOutlet weak var itemNameTextField: UITextField!
     
     
-    @IBAction func imageButtonTapped(sender: AnyObject) {
+    @IBAction func imageButtonTapped(_ sender: AnyObject) {
         photoHelper = PhotoHelper(viewController: self) { (image: UIImage?) in
             if let image = image {
                self.itemImageView.image = image
@@ -27,15 +27,15 @@ class CreateNewItemViewController: UIViewController {
         }
     }
     
-    @IBAction func createItemButtonPressed(sender: AnyObject) {
+    @IBAction func createItemButtonPressed(_ sender: AnyObject) {
         
         if validateInputs() {
             // Image and item name both exist.  Save to realm and present success message!
             
-            let successAlert = UIAlertController(title: "Success!", message: "Item has been saved.", preferredStyle: .Alert)
-            let successAction = UIAlertAction(title: "OK", style: .Default, handler: {
+            let successAlert = UIAlertController(title: "Success!", message: "Item has been saved.", preferredStyle: .alert)
+            let successAction = UIAlertAction(title: "OK", style: .default, handler: {
                 action in
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewController(animated: true)
             })
             successAlert.addAction(successAction)
             
@@ -43,17 +43,17 @@ class CreateNewItemViewController: UIViewController {
             let newItem = Item()
             newItem.itemName = itemNameTextField.text
             let scaledImage = itemImageView.image?.resizeWithWidth(150)
-            let imageAsData: NSData = UIImagePNGRepresentation(scaledImage!)!
+            let imageAsData: Data = UIImagePNGRepresentation(scaledImage!)!
             newItem.picture = imageAsData
             newItem.add()
             print("item added to realm!")
-            presentViewController(successAlert, animated: true, completion: nil)
+            present(successAlert, animated: true, completion: nil)
         } else {
             //User is missing image or item name.  Present failure alert action.
-            let failureAlert = UIAlertController(title: "Error!", message: "All items must have a picture and a name", preferredStyle: .Alert)
-            let failureAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            let failureAlert = UIAlertController(title: "Error!", message: "All items must have a picture and a name", preferredStyle: .alert)
+            let failureAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             failureAlert.addAction(failureAction)
-            presentViewController(failureAlert, animated: true, completion: nil)
+            present(failureAlert, animated: true, completion: nil)
             }
         
     }

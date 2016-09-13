@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias PhotoHelperCallback = UIImage? -> Void
+typealias PhotoHelperCallback = (UIImage?) -> Void
 
 class PhotoHelper: NSObject {
     
@@ -19,7 +19,7 @@ class PhotoHelper: NSObject {
     var callback: PhotoHelperCallback
     var imagePickerController: UIImagePickerController?
     
-    init(viewController: UIViewController, callback: PhotoHelperCallback) {
+    init(viewController: UIViewController, callback: @escaping PhotoHelperCallback) {
         self.viewController = viewController
         self.callback = callback
         
@@ -30,35 +30,35 @@ class PhotoHelper: NSObject {
     
     func photoSource() {
         
-        let alertController = UIAlertController(title: nil, message: "Please select your photo source", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: "Please select your photo source", preferredStyle: .actionSheet)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let photoLibraryAction = UIAlertAction(title: "Photo From Library", style: .Default) { (action) in
-                self.showImagePickerController(.PhotoLibrary)
+        let photoLibraryAction = UIAlertAction(title: "Photo From Library", style: .default) { (action) in
+                self.showImagePickerController(.photoLibrary)
         }
         
         alertController.addAction(photoLibraryAction)
         alertController.addAction(cancelAction)
         
         
-        if UIImagePickerController.isCameraDeviceAvailable(.Rear) {
-            let cameraAction = UIAlertAction(title: "Photo from Camera", style: .Default) { (action) in
-                self.showImagePickerController(.Camera)
+        if UIImagePickerController.isCameraDeviceAvailable(.rear) {
+            let cameraAction = UIAlertAction(title: "Photo from Camera", style: .default) { (action) in
+                self.showImagePickerController(.camera)
             }
             
             alertController.addAction(cameraAction)
         }
         
-        viewController.presentViewController(alertController, animated: true, completion: nil)
+        viewController.present(alertController, animated: true, completion: nil)
     }
     
     
-    func showImagePickerController(sourceType: UIImagePickerControllerSourceType) {
+    func showImagePickerController(_ sourceType: UIImagePickerControllerSourceType) {
         imagePickerController = UIImagePickerController()
         imagePickerController!.sourceType = sourceType
         imagePickerController!.delegate = self
-        self.viewController.presentViewController(imagePickerController!, animated: true, completion: nil)
+        self.viewController.present(imagePickerController!, animated: true, completion: nil)
     }
     
 }
@@ -66,37 +66,37 @@ class PhotoHelper: NSObject {
 
 extension PhotoHelper: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        viewController.dismissViewControllerAnimated(false, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        viewController.dismiss(animated: false, completion: nil)
         
         callback(image)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
 
 extension UIImage {
-    func resizeWithPercentage(percentage: CGFloat) -> UIImage? {
+    func resizeWithPercentage(_ percentage: CGFloat) -> UIImage? {
         let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         imageView.image = self
         UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.renderInContext(context)
+        imageView.layer.render(in: context)
         guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         UIGraphicsEndImageContext()
         return result
     }
     
-    func resizeWithWidth(width: CGFloat) -> UIImage? {
+    func resizeWithWidth(_ width: CGFloat) -> UIImage? {
         let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         imageView.image = self
         UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.renderInContext(context)
+        imageView.layer.render(in: context)
         guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         UIGraphicsEndImageContext()
         return result

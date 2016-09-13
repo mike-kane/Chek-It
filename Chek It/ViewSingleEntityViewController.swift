@@ -13,20 +13,8 @@ class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
-    var studentHistory: Results<T: Object>{
-        if let studentToView = studentToView {
-            studentHistory = LinkingObjects(fromType: Transaction.self, property: "Student")
-        } else {
-            return nil
-        }
-    }
-    
-    var itemHistory: Results<Student> {
-        if let _ = itemToView {
-            
-        } else {
-            return
-        }
+    var studentHistory: Results<T>{
+        return []
     }
    
     @IBOutlet weak var studentOrItemImageView: UIImageView!
@@ -42,18 +30,18 @@ class ViewSingleEntityViewController: UIViewController {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "EntityNib", bundle: nil)
-        historyTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
+        historyTableView.register(nib, forCellReuseIdentifier: "entityCell")
         
         historyTableView.delegate = self
         historyTableView.dataSource = self
         
         if studentOrItem == "Student" {
             studentOrItemLabel.text = "\(studentToView!.lastName), \(studentToView!.firstName)"
-            let image: UIImage = UIImage(data: studentToView!.picture!)!
+            let image: UIImage = UIImage(data: studentToView!.picture! as Data)!
             studentOrItemImageView.image = image
         } else {
             studentOrItemLabel.text = itemToView!.itemName
-            let image: UIImage = UIImage(data: itemToView!.picture!)!
+            let image: UIImage = UIImage(data: itemToView!.picture! as Data)!
             studentOrItemImageView.image = image
         }
     }
@@ -61,7 +49,7 @@ class ViewSingleEntityViewController: UIViewController {
 
 extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if studentOrItem == "Student" {
             return 5
         } else {
@@ -69,8 +57,8 @@ extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entityCell", for: indexPath) as! EntityTableViewCell
         
         if studentOrItem == "Student" {
             

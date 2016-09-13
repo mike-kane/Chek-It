@@ -20,22 +20,22 @@ class ExistingStudentsOrItemsViewController: UIViewController {
    
     @IBOutlet weak var entityTableView: UITableView!
     
-    @IBAction func segmentedControlChoiceChanged(sender: AnyObject) {
+    @IBAction func segmentedControlChoiceChanged(_ sender: AnyObject) {
         if itemsOrStudentsSegmentedControl.selectedSegmentIndex != selectedIndex {
             selectedIndex = itemsOrStudentsSegmentedControl.selectedSegmentIndex
             entityTableView.reloadData()
         }
     }
     
-    @IBAction func addButtonPressed(sender: AnyObject) {
+    @IBAction func addButtonPressed(_ sender: AnyObject) {
         if itemsOrStudentsSegmentedControl.selectedSegmentIndex == 0 { // Item Selected
-            performSegueWithIdentifier("createNewItemSegue", sender: nil)
+            performSegue(withIdentifier: "createNewItemSegue", sender: nil)
         } else { // Student Selected
-            performSegueWithIdentifier("createNewStudentSegue", sender: nil)
+            performSegue(withIdentifier: "createNewStudentSegue", sender: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         entityTableView.reloadData()
         print("break!")
     }
@@ -47,13 +47,13 @@ class ExistingStudentsOrItemsViewController: UIViewController {
         entityTableView.dataSource = self
         
         let nib = UINib(nibName: "EntityNib", bundle: nil)
-        entityTableView.registerNib(nib, forCellReuseIdentifier: "entityCell")
+        entityTableView.register(nib, forCellReuseIdentifier: "entityCell")
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewStudentOrItemSegue" {
             
-            let nextVC = segue.destinationViewController as! ViewSingleEntityViewController
+            let nextVC = segue.destination as! ViewSingleEntityViewController
             nextVC.studentToView = studentSelected
             nextVC.itemToView = itemSelected
            
@@ -69,7 +69,7 @@ class ExistingStudentsOrItemsViewController: UIViewController {
 
 extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedIndex == 0 {//Items selected
             return allExistingItems?.count ?? 0
         } else {
@@ -77,18 +77,18 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("entityCell", forIndexPath: indexPath) as! EntityTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entityCell", for: indexPath) as! EntityTableViewCell
         
         if selectedIndex == 0 {                                     // Items selected
             if let allExistingItems = allExistingItems {
-                let item  = allExistingItems[indexPath.row]
+                let item  = allExistingItems[(indexPath as NSIndexPath).row]
                 cell.setUpItemCell(item, transaction: nil)
                 cell.dateCheckedOutLabel.text = ""
             }
         } else {                                                    // Students selected
             if let allExistingStudents = allExistingStudents {
-                let student = allExistingStudents[indexPath.row]
+                let student = allExistingStudents[(indexPath as NSIndexPath).row]
                 cell.setUpStudentCell(student, transaction: nil)
                 cell.dateCheckedOutLabel.text = ""
             }
@@ -96,18 +96,18 @@ extension ExistingStudentsOrItemsViewController: UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectedIndex == 0 {
             if let allExistingItems = allExistingItems {
-                itemSelected = allExistingItems[indexPath.row]
+                itemSelected = allExistingItems[(indexPath as NSIndexPath).row]
             }
         } else {
             if let allExistingStudents = allExistingStudents {
-                studentSelected = allExistingStudents[indexPath.row]
+                studentSelected = allExistingStudents[(indexPath as NSIndexPath).row]
             }
         }
         
-        performSegueWithIdentifier("viewStudentOrItemSegue", sender: nil)
+        performSegue(withIdentifier: "viewStudentOrItemSegue", sender: nil)
     }
     
 }

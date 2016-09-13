@@ -13,6 +13,6 @@ class Student: Object {
 
     dynamic var firstName: String!
     dynamic var lastName: String!
-    dynamic var picture: NSData!
+    dynamic var picture: Data!
     
 }
