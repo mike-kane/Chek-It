@@ -38,8 +38,6 @@ class SelectStudentViewController: UIViewController {
             nextVC.studentSelected = self.studentSelected
         }
     }
-    
-    
 }
 
 extension SelectStudentViewController: UITableViewDataSource, UITableViewDelegate {

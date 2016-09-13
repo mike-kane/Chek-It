@@ -7,11 +7,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
+    var studentHistory: Results<T: Object>{
+        if let studentToView = studentToView {
+            studentHistory = LinkingObjects(fromType: Transaction.self, property: "Student")
+        } else {
+            return nil
+        }
+    }
+    
+    var itemHistory: Results<Student> {
+        if let _ = itemToView {
+            
+        } else {
+            return
+        }
+    }
    
     @IBOutlet weak var studentOrItemImageView: UIImageView!
     
