@@ -13,9 +13,9 @@ class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
-    var studentHistory: Results<T>{
-        return []
-    }
+    //var studentHistory: Results<T>{
+      //  return []
+    //}
    
     @IBOutlet weak var studentOrItemImageView: UIImageView!
     
