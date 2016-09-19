@@ -35,7 +35,7 @@ class CreateNewItemViewController: UIViewController {
             let successAlert = UIAlertController(title: "Success!", message: "Item has been saved.", preferredStyle: .alert)
             let successAction = UIAlertAction(title: "OK", style: .default, handler: {
                 action in
-                self.navigationController?.popViewController(animated: true)
+               _ =  self.navigationController?.popViewController(animated: true)
             })
             successAlert.addAction(successAction)
             
@@ -63,12 +63,15 @@ class CreateNewItemViewController: UIViewController {
         if itemNameTextField.text == nil || (itemNameTextField.text?.isEmpty)! {
             return false
         }
-        
         if itemImageView.image == nil {
             return false
         }
-        
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     

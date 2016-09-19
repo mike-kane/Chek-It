@@ -39,7 +39,7 @@ class CreateTransactionViewController: UIViewController {
             let successAlert = UIAlertController(title: "Success!", message: "Item has been checked out successfully!", preferredStyle: .alert)
             let successAction = UIAlertAction(title: "OK", style: .default) {
                 action in
-                    self.navigationController?.popViewController(animated: true)
+                    _ = self.navigationController?.popViewController(animated: true)
             }
             successAlert.addAction(successAction)
             

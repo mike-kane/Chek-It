@@ -12,7 +12,7 @@ class SelectItemViewController: UIViewController {
 
     var itemSelected: Item!
     
-    var allAvailableItems = RealmHelper.objects(Item)?.filter("isCheckedOut = false")
+    var allAvailableItems = RealmHelper.objects(Item.self)?.filter("isCheckedOut = false")
     
     @IBOutlet weak var itemsTableView: UITableView!
     

@@ -11,7 +11,7 @@ import UIKit
 class SelectStudentViewController: UIViewController {
     
     
-    var allStudents = RealmHelper.objects(Student)
+    var allStudents = RealmHelper.objects(Student.self)
     var studentSelected: Student!
     
     

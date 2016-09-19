@@ -10,7 +10,7 @@ import UIKit
 
 class CompletedTransactionsViewController: UIViewController {
     
-    let completedTransactions = RealmHelper.objects(Transaction)?.filter("transactionComplete = true")
+    let completedTransactions = RealmHelper.objects(Transaction.self)?.filter("transactionComplete = true")
     
     var transactionSelected: Transaction!
     

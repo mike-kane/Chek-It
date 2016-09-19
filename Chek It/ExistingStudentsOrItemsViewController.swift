@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class ExistingStudentsOrItemsViewController: UIViewController {
-    var allExistingStudents = RealmHelper.objects(Student)
-    var allExistingItems = RealmHelper.objects(Item)
+    var allExistingStudents = RealmHelper.objects(Student.self)
+    var allExistingItems = RealmHelper.objects(Item.self)
     var selectedIndex = 0
     var studentSelected: Student?
     var itemSelected: Item?

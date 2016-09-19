@@ -36,7 +36,7 @@ class CreateNewStudentViewController: UIViewController {
             let successAlert = UIAlertController(title: "Success!", message: "Student has been saved.", preferredStyle: .alert)
             let successAction = UIAlertAction(title: "OK", style: .default, handler: {
                 action in
-                self.navigationController?.popViewController(animated: true)
+              _ = self.navigationController?.popViewController(animated: true)
             })
             successAlert.addAction(successAction)
             
@@ -66,17 +66,20 @@ class CreateNewStudentViewController: UIViewController {
         if firstNameTextField.text == nil || (firstNameTextField.text?.isEmpty)! {
             return false
         }
-        
         if lastNameTextField.text == nil || (lastNameTextField.text?.isEmpty)! {
             return false
         }
-        
         if newStudentImageView.image == nil {
             return false
         }
-        
         return true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

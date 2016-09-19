@@ -11,7 +11,7 @@ import RealmSwift
 class CurrentTransactionsViewController: UIViewController {
     
     var transactionSelected: Transaction!
-    var currentTransactions = RealmHelper.objects(Transaction)?.filter("transactionComplete = false")
+    var currentTransactions = RealmHelper.objects(Transaction.self)?.filter("transactionComplete = false")
     
     @IBOutlet weak var transactionsTableView: UITableView!
     
