@@ -13,9 +13,13 @@ class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
-    //var studentHistory: Results<T>{
-      //  return []
-    //}
+    var relatedTransactions: Results<T> {
+        if let studentToView = studentToView {
+            return LinkingObjects(fromType: Transaction.self, property: "Student")
+        } else {
+            return LinkingObjects(fromType: Transaction.self, property: "Item")
+        }
+    }
    
     @IBOutlet weak var studentOrItemImageView: UIImageView!
     
