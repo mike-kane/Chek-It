@@ -4,7 +4,10 @@
 //
 //  Created by Mike Kane on 7/1/16.
 //  Copyright © 2016 Mike Kane. All rights reserved.
-//
+//  
+//  TODO:  Complete history table views for students and items
+//  TODO:  Fix background colors for all table views
+//  TODO:  Final QA on all aesthetics/UI stuff
 
 import UIKit
 import RealmSwift
@@ -21,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 // Code to wipe realm db when schema changes are made
 //        do{
-//        try NSFileManager.defaultManager().removeItemAtURL(Realm.Configuration.defaultConfiguration.fileURL!)
+//        try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 //        } catch {
 //            print("error")
 //        }

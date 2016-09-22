@@ -41,7 +41,7 @@ class EntityTableViewCell: UITableViewCell {
     
     func setUpStudentCell(_ student: Student, transaction: Transaction?) {
         entityImageView.image = UIImage(data: student.picture as Data)
-        entityNameLabel.text = "\(student.lastName), \(student.firstName)"
+        entityNameLabel.text = "\(student.lastName!), \(student.firstName!)"
         
         if let transaction = transaction {
             dateCheckedOutLabel.text = "Checked Out: \(transaction.dateCheckedOut)"

@@ -75,7 +75,7 @@ class CreateTransactionViewController: UIViewController {
         if let studentSelected = studentSelected {
             let studentImage = UIImage(data: studentSelected.picture as Data)
             self.studentImageView.image = studentImage!
-            self.studentNameLabel.text = "\(studentSelected.lastName), \(studentSelected.firstName)"
+            self.studentNameLabel.text = "\(studentSelected.lastName!), \(studentSelected.firstName!)"
         } else {
             studentNameLabel.text = "Select a student"
         }
@@ -83,7 +83,7 @@ class CreateTransactionViewController: UIViewController {
         if let itemSelected = itemSelected {
             let itemImage = UIImage(data: itemSelected.picture as Data)
             itemImageView.image = itemImage!
-            itemNameLabel.text = "\(itemSelected.itemName)"
+            itemNameLabel.text = itemSelected.itemName
         } else {
             itemNameLabel.text = "Select an item"
         }

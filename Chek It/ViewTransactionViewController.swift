@@ -49,7 +49,7 @@ class ViewTransactionViewController: UIViewController {
         let itemImage = UIImage(data: item.picture as Data)
         studentImageView.image = studentImage!
         itemImageView.image = itemImage!
-        studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+        studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
         itemNameLabel.text = item.itemName
         dateCheckedOutLabel.text = "\(transactionToView.dateCheckedOut)"
     }

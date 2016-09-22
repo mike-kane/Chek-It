@@ -42,8 +42,8 @@ class CreateNewStudentViewController: UIViewController {
             
             //Create Student, resize image, add attributes, save to Realm DB
             let newStudent = Student()
-            newStudent.firstName = firstNameTextField.text
-            newStudent.lastName = lastNameTextField.text
+            newStudent.firstName = firstNameTextField.text!
+            newStudent.lastName = lastNameTextField.text!
             let scaledImage = newStudentImageView.image?.resizeWithWidth(150)
             let imageAsData = UIImagePNGRepresentation(scaledImage!)
             newStudent.picture = imageAsData

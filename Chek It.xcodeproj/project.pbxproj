@@ -78,8 +78,8 @@
 		E4E819D21D70189500945A6B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E4E90DA91D4EA61F005D0BA4 /* CompletedTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransactionsViewController.swift; sourceTree = "<group>"; };
 		E4E90DAB1D4EA634005D0BA4 /* ViewCompletedTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCompletedTransactionViewController.swift; sourceTree = "<group>"; };
-		E4E996EB1D8FA0FF006C63C5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		E4E996EC1D8FA0FF006C63C5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		E4E996EB1D8FA0FF006C63C5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		E4E996EC1D8FA0FF006C63C5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E4F70D241D3F314000A82132 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +131,6 @@
 		E468ABB81D27768C00FD1D37 = {
 			isa = PBXGroup;
 			children = (
-				E4E996EB1D8FA0FF006C63C5 /* Realm.framework */,
-				E4E996EC1D8FA0FF006C63C5 /* RealmSwift.framework */,
 				E468ABC31D27768D00FD1D37 /* Chek It */,
 				E468ABC21D27768D00FD1D37 /* Products */,
 			);
@@ -158,6 +156,8 @@
 				E468ABCB1D27768D00FD1D37 /* Assets.xcassets */,
 				E468ABCD1D27768D00FD1D37 /* LaunchScreen.storyboard */,
 				E468ABD01D27768D00FD1D37 /* Info.plist */,
+				E4E996EB1D8FA0FF006C63C5 /* Realm.framework */,
+				E4E996EC1D8FA0FF006C63C5 /* RealmSwift.framework */,
 			);
 			path = "Chek It";
 			sourceTree = "<group>";

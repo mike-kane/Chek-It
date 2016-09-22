@@ -34,7 +34,7 @@ class ViewCompletedTransactionViewController: UIViewController {
         student = completedTransactionToView.student
         itemImageView.image = UIImage(data: item.picture as Data)
         studentImageView.image = UIImage(data: student.picture as Data)
-        studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+        studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
         itemNameLabel.text = item.itemName
         dateCheckedOutLabel.text = "Checked Out:\(completedTransactionToView.dateCheckedOut)"
         let dateFormatter = DateFormatter()

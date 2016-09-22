@@ -63,7 +63,7 @@ extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDa
             cell.itemNameLabel.text = item.itemName
             let studentImage = UIImage(data: student.picture)
             cell.studentImageView.image = studentImage!
-            cell.studentNameLabel.text = "\(student.lastName), \(student.firstName)"
+            cell.studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
         }
         return cell
     }

@@ -36,7 +36,7 @@ class ViewSingleEntityViewController: UIViewController {
         historyTableView.dataSource = self
         
         if studentOrItem == "Student" {
-            studentOrItemLabel.text = "\(studentToView!.lastName), \(studentToView!.firstName)"
+            studentOrItemLabel.text = "\(studentToView!.lastName!), \(studentToView!.firstName!)"
             let image: UIImage = UIImage(data: studentToView!.picture! as Data)!
             studentOrItemImageView.image = image
         } else {
