@@ -13,14 +13,7 @@ class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
-    var relatedTransactions: Results<T> {
-        if let studentToView = studentToView {
-            return LinkingObjects(fromType: Transaction.self, property: "Student")
-        } else {
-            return LinkingObjects(fromType: Transaction.self, property: "Item")
-        }
-    }
-   
+
     @IBOutlet weak var studentOrItemImageView: UIImageView!
     
     @IBOutlet weak var studentOrItemLabel: UILabel!
@@ -55,9 +48,11 @@ extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if studentOrItem == "Student" {
-            return 5
+            print(studentToView?.transactionHistory.count)
+            return (studentToView?.transactionHistory.count)!
         } else {
-            return 5
+            print(itemToView?.transactionHistory.count)
+            return (itemToView?.transactionHistory.count)!
         }
     }
     
@@ -66,11 +61,11 @@ extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSo
         
         if studentOrItem == "Student" {
             
-            //let transaction: Transaction? = studentHistory[indexPath.row]
-            cell.setUpStudentCell(studentToView!, transaction: nil)
+            let transaction = studentToView?.transactionHistory[indexPath.row]
+            cell.setUpStudentCell(studentToView!, transaction: transaction)
         } else {
-            //let itemHistory = itemToView!.allTransactions
-            cell.setUpItemCell(itemToView!, transaction: nil)
+            let transaction = itemToView?.transactionHistory[indexPath.row]
+            cell.setUpItemCell(itemToView!, transaction: transaction)
         }
         
         return cell
