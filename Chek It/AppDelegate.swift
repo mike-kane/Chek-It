@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
 // Code to wipe realm db when schema changes are made
-//        do{
+//        do {
 //        try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 //        } catch {
 //            print("error")
