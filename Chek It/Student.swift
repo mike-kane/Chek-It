@@ -14,5 +14,7 @@ class Student: Object {
     dynamic var firstName: String!
     dynamic var lastName: String!
     dynamic var picture: Data!
-    
+    var transactionHistory: LinkingObjects<Transaction> {
+        return LinkingObjects(fromType: Transaction.self, property: "student")
+    }
 }
