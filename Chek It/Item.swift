@@ -16,5 +16,8 @@ class Item: Object {
     dynamic var isCheckedOut: Bool = false
     dynamic var picture: Data!
     var currentlyCheckedOutBy: Student?
+    var transactionHistory: LinkingObjects<Transaction> {
+        return LinkingObjects(fromType: Transaction.self, property: "item")
+    }
     
 }
