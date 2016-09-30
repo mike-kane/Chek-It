@@ -13,15 +13,14 @@ class ViewSingleEntityViewController: UIViewController {
     var studentToView: Student?
     var itemToView: Item?
     var studentOrItem: String!
+//    var transactionsForStudent: LinkingObjects<Transaction>!
+//    var transactionsForItem: LinkingObjects<Transaction>!
 
     @IBOutlet weak var studentOrItemImageView: UIImageView!
     
     @IBOutlet weak var studentOrItemLabel: UILabel!
     
     @IBOutlet weak var historyTableView: UITableView!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +32,30 @@ class ViewSingleEntityViewController: UIViewController {
         historyTableView.dataSource = self
         
         if studentOrItem == "Student" {
+            print(studentToView?.transactionHistory.count)
             studentOrItemLabel.text = "\(studentToView!.lastName!), \(studentToView!.firstName!)"
             let image: UIImage = UIImage(data: studentToView!.picture! as Data)!
             studentOrItemImageView.image = image
         } else {
+            print(itemToView?.transactionHistory.count)
             studentOrItemLabel.text = itemToView!.itemName
             let image: UIImage = UIImage(data: itemToView!.picture! as Data)!
             studentOrItemImageView.image = image
         }
     }
+    
+//    func populateDataSource() {
+//        if studentOrItem == "Student" {
+//            if let studentToView = studentToView {
+//                transactionsForStudent = LinkingObjects(fromType: Transaction.self, property: "student")
+//                print(transactionsForStudent.count)
+//            }
+//        } else {
+//            if let itemToView = itemToView {
+//                transactionsForItem = LinkingObjects(fromType: Transaction.self, property: "item")
+//            }
+//        }
+//    }
 }
 
 extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSource {

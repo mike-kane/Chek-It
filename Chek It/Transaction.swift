@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class Transaction: Object {
-    
     dynamic var item: Item?
     dynamic var student: Student?
     dynamic var dateCheckedOut: String {
@@ -21,6 +20,4 @@ class Transaction: Object {
     }
     dynamic var dateCheckedIn: Date?
     dynamic var transactionComplete = false
-
-    
 }
