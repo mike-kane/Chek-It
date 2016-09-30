@@ -32,7 +32,14 @@ class EntityTableViewCell: UITableViewCell {
         entityNameLabel.text = item.itemName
         
         if let transaction = transaction {
-            dateCheckedOutLabel.text = transaction.dateCheckedOut 
+            dateCheckedOutLabel.text = transaction.dateCheckedOut
+            if transaction.transactionComplete == true {
+                let color = UIColor(red: 66/255, green: 244/255, blue: 113/255, alpha: 0.5)
+                self.backgroundColor = color
+            } else {
+                let color = UIColor(red: 244/255, green: 89/255, blue: 66/255, alpha: 0.5)
+                self.backgroundColor = color
+            }
         } else {
             dateCheckedOutLabel.text = ""
         }
@@ -45,11 +52,11 @@ class EntityTableViewCell: UITableViewCell {
         
         if let transaction = transaction {
             dateCheckedOutLabel.text = "Checked Out: \(transaction.dateCheckedOut)"
-            if transaction.transactionComplete {
-                let color = UIColor(red: 66, green: 244, blue: 113, alpha: 1)
+            if transaction.transactionComplete == true {
+                let color = UIColor(red: 66/255, green: 244/255, blue: 113/255, alpha: 0.5)
                 self.backgroundColor = color
             } else {
-                let color = UIColor(hue: 244, saturation: 89, brightness: 66, alpha: 1)
+                let color = UIColor(red: 244/255, green: 89/255, blue: 66/255, alpha: 0.5)
                 self.backgroundColor = color
             }
         } else {

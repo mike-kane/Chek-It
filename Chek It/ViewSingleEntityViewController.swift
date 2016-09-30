@@ -20,6 +20,10 @@ class ViewSingleEntityViewController: UIViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        historyTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,19 +45,6 @@ class ViewSingleEntityViewController: UIViewController {
             studentOrItemImageView.image = image
         }
     }
-    
-//    func populateDataSource() {
-//        if studentOrItem == "Student" {
-//            if let studentToView = studentToView {
-//                transactionsForStudent = LinkingObjects(fromType: Transaction.self, property: "student")
-//                print(transactionsForStudent.count)
-//            }
-//        } else {
-//            if let itemToView = itemToView {
-//                transactionsForItem = LinkingObjects(fromType: Transaction.self, property: "item")
-//            }
-//        }
-//    }
 }
 
 extension ViewSingleEntityViewController: UITableViewDelegate, UITableViewDataSource {
