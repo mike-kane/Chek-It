@@ -46,25 +46,34 @@ class CurrentTransactionsViewController: UIViewController {
 extension CurrentTransactionsViewController:  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentTransactions?.count ?? 0
+        if currentTransactions?.count == 0 {
+            return 1
+        } else {
+            return (currentTransactions?.count)!
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
         
         if let currentTransactions = currentTransactions {
-            let transaction = currentTransactions[(indexPath as NSIndexPath).row]
-            let student = transaction.student!
-            let item = transaction.item!
-            let itemImage  = UIImage(data: item.picture)
-            cell.itemImageView.image = itemImage!
-            cell.itemNameLabel.text = item.itemName
-            let studentImage = UIImage(data: student.picture)
-            cell.studentImageView.image = studentImage!
-            cell.studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
+            if currentTransactions.count == 0 {
+                cell.textLabel?.text = "No items currently checked out."
+            } else {
+                cell.textLabel?.text = ""
+                let transaction = currentTransactions[(indexPath as NSIndexPath).row]
+                let student = transaction.student!
+                let item = transaction.item!
+                let itemImage  = UIImage(data: item.picture)
+                cell.itemImageView.image = itemImage!
+                cell.itemNameLabel.text = item.itemName
+                let studentImage = UIImage(data: student.picture)
+                cell.studentImageView.image = studentImage!
+                cell.studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
+                }
+            }
+            return cell
         }
-        return cell
-    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

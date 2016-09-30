@@ -32,7 +32,7 @@ class EntityTableViewCell: UITableViewCell {
         entityNameLabel.text = item.itemName
         
         if let transaction = transaction {
-            dateCheckedOutLabel.text = transaction.dateCheckedOut
+            dateCheckedOutLabel.text = "Checked Out: \(transaction.dateCheckedOut)"
             if transaction.transactionComplete == true {
                 let color = UIColor(red: 66/255, green: 244/255, blue: 113/255, alpha: 0.5)
                 self.backgroundColor = color
