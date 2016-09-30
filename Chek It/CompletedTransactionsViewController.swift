@@ -26,6 +26,10 @@ class CompletedTransactionsViewController: UIViewController {
         completedTransactionsTableView.delegate = self
         completedTransactionsTableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        completedTransactionsTableView.reloadData()
+    }
 
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
