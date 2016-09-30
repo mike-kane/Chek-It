@@ -14,5 +14,5 @@ class Student: Object {
     dynamic var firstName: String!
     dynamic var lastName: String!
     dynamic var picture: Data!
-    var transactionHistory: List<Transaction>!
+    var transactionHistory = List<Transaction>()
 }

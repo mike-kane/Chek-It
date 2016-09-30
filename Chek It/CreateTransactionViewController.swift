@@ -49,9 +49,11 @@ class CreateTransactionViewController: UIViewController {
             newTransaction.add()
             itemSelected?.update {
                 self.itemSelected?.currentlyCheckedOutBy = self.studentSelected
-                //self.itemSelected?.allTransactions.append(newTransaction)
+                self.itemSelected?.transactionHistory.append(newTransaction)
             }
-            
+            studentSelected?.update {
+                self.studentSelected?.transactionHistory.append(newTransaction)
+                }
             present(successAlert, animated: true, completion: nil)
         } else {
             let failureaAlert = UIAlertController(title: "Error!", message: "You must select a student and an item.", preferredStyle: .alert)

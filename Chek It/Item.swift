@@ -16,5 +16,5 @@ class Item: Object {
     dynamic var isCheckedOut: Bool = false
     dynamic var picture: Data!
     var currentlyCheckedOutBy: Student?
-    var transactionHistory: List<Transaction>!
+    var transactionHistory = List<Transaction>()
 }
