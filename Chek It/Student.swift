@@ -10,11 +10,9 @@ import UIKit
 import RealmSwift
 
 class Student: Object {
-
+    dynamic var ID = UUID().uuidString
     dynamic var firstName: String!
     dynamic var lastName: String!
     dynamic var picture: Data!
-    var transactionHistory: LinkingObjects<Transaction> {
-        return LinkingObjects(fromType: Transaction.self, property: "student")
-    }
+    var transactionHistory: List<Transaction>!
 }

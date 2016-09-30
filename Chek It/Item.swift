@@ -11,13 +11,10 @@ import RealmSwift
 
 
 class Item: Object {
-
+    dynamic var ID = UUID().uuidString
     dynamic var itemName: String!
     dynamic var isCheckedOut: Bool = false
     dynamic var picture: Data!
     var currentlyCheckedOutBy: Student?
-    var transactionHistory: LinkingObjects<Transaction> {
-        return LinkingObjects(fromType: Transaction.self, property: "item")
-    }
-    
+    var transactionHistory: List<Transaction>!
 }
