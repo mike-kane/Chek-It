@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Chek It needs to access your camera to take pictures of students and items.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Chek It needs access to your camera in order to add pictures to students and items.</string>
+	<string>Chek It needs access to your camera roll in order to add pictures to students and items.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
