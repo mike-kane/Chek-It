@@ -16,7 +16,6 @@ class CompletedTransactionsViewController: UIViewController {
     
     @IBOutlet weak var completedTransactionsTableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,14 +30,12 @@ class CompletedTransactionsViewController: UIViewController {
         completedTransactionsTableView.reloadData()
     }
 
-  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewCompletedTransactionSegue" {
             let nextVC = segue.destination as! ViewCompletedTransactionViewController
             nextVC.completedTransactionToView = self.transactionSelected
         }
     }
-
 }
 
 extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,7 +46,6 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
         } else {
             return 0
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +62,6 @@ extension CompletedTransactionsViewController: UITableViewDelegate, UITableViewD
             cell.studentImageView.image = studentImage!
             cell.studentNameLabel.text = "\(student.lastName!), \(student.firstName!)"
         }
-        
         return cell
     }
     
